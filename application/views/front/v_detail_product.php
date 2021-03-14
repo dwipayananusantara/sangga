@@ -222,6 +222,11 @@ error_reporting(0);
                     type: 'POST',
                     data: $('#data').serialize(),
                     success: function(response) {
+                        $.ajax({
+                            url: '<?php echo base_url() . 'backend/orders/kurangi_stock' ?>',
+                            type: 'POST',
+                            data: $('#data').serialize(),
+                        });
                         if (response != '') {
                             alert('Order Berhasil Di Pesan Dengan No Invoice ' + response.replace(/\"/g, ""));
                             window.open("<?php echo base_url() . 'backend/orders/get_invoice/' ?>" + response.replace(/\"/g, ""), '_blank');

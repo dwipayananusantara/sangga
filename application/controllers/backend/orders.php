@@ -54,6 +54,9 @@ class Orders extends CI_Controller
     function pembayaran_orders()
     {
         if ($this->input->post('tipe') == 'pembayaran') {
+            // var_dump($this->input-> post());
+            // var_dump($_FILES['filefoto']);
+            // die();
             $config['upload_path'] = './assets/bukti_transfer/'; //path folder
             $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
             $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
@@ -86,7 +89,7 @@ class Orders extends CI_Controller
                     echo $this->session->set_flashdata('msg', 'warning');
                     redirect('');
                 }
-            }
+            } 
         } else {
             $config['upload_path'] = './front/images/review/'; //path folder
             $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
@@ -195,5 +198,12 @@ class Orders extends CI_Controller
         $x['data'] = $this->morders->deposit($inv);
         $x['judul'] = "Deposit";
         $this->load->view('front/v_deposit', $x);
+    }
+
+    function kurangi_stock()
+    {
+        //kurangi stock
+        $queryKurangiStock = "UPDATE product SET $ukuran=((SELECT $ukuran from product WHERE id_product=$id_product)-$quantity) WHERE id_product=$id_product";
+        $this->db->query($queryKurangiStock);
     }
 }

@@ -87,6 +87,7 @@ class Morders extends CI_Model
     }
     function simpan_bukti($noinvoice, $nama, $bank, $jumlah, $gambar)
     {
+        
         $hasil = $this->db->query("INSERT INTO pembayaran(tgl_bayar, id_metode,id_order,jumlah,pengirim,bukti_transfer)VALUES(CURDATE(),'$bank','$noinvoice','$jumlah','$nama','$gambar')");
         return $hasil;
     }
