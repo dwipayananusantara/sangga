@@ -22,7 +22,7 @@
                                 <form class="form-horizontal" method="post" action="<?php echo base_url() . 'login' ?>">
                                     <input type="hidden" class="form-control" name="ref" value="<?php echo base_url(uri_string()) ?>" />
                                     <div class="box-header">
-                                        <input type="submit" class="btn btn-xs uppercase" value="Login / Register" />
+                                        <input type="submit" class="btn btn-xs uppercase" value="Masuk / Daftar" />
                                     </div>
                                 </form>
                             </div>
@@ -50,10 +50,10 @@
                             <li class="dropdown" bgcolor="blue"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i>
                                     <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="<?php echo base_url() . 'profile' ?>">Profile Settings</a></li>
-                                    <li><a href="<?php echo base_url() . 'update_password' ?>">Update Password</a></li>
+                                    <li><a href="<?php echo base_url() . 'profile' ?>">Pengaturan Profile</a></li>
+                                    <li><a href="<?php echo base_url() . 'update_password' ?>">Ganti Password</a></li>
                                     <li><a href="<?php echo base_url() . 'riwayatsewa' ?>">Riwayat Sewa</a></li>
-                                    <li><a href="<?php echo base_url() . 'login/logout' ?>">Sign Out</a></li>
+                                    <li><a href="<?php echo base_url() . 'login/logout' ?>">Keluar</a></li>
                                 </ul>
                             <?php } ?>
                             </li>
@@ -63,7 +63,7 @@
 
             <div class="collapse navbar-collapse" id="navigation">
                 <ul class="nav navbar-nav">
-                    <li><a href="<?php echo base_url() ?>">Home</a></li>
+                    <li><a href="<?php echo base_url() ?>">Beranda</a></li>
                     <li class="dropdown" bgcolor="blue"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kostum</a>
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo base_url() . 'product/adat/' ?>">Kostum Adat</a></li>
@@ -72,7 +72,7 @@
                     </li>
                     <li><a href="<?php echo base_url() . 'about' ?>">Tentang Kami</a></li>
                     <li><a href="<?php echo base_url() . 'kontak' ?>">Hubungi Kami</a></li>
-                    <li><a href="<?php echo base_url() . 'review' ?>">Review</a></li>
+                    <li><a href="<?php echo base_url() . 'review' ?>">Ulasan</a></li>
                 </ul>
             </div>
         </div>

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Sanggar Seni Dwipayana Nusantara | Sign in</title>
+	<title>Sanggar Seni Dwipayana Nusantara | Masuk</title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<link rel="shorcut icon" type="text/css" href="<?php echo base_url() . 'assets/images/favicon.png' ?>">
@@ -43,7 +43,7 @@
 				<div class="row">
 					<!-- /.col -->
 					<div class="col-xs-12">
-						<button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+						<button type="submit" class="btn btn-primary btn-block btn-flat">Masuk</button>
 					</div>
 					<!-- /.col -->
 				</div>

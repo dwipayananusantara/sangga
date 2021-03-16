@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Sanggar Seni Dwipayana Nusantara | Sign in</title>
+	<title>Sanggar Seni Dwipayana Nusantara | Daftar</title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<link rel="shorcut icon" type="text/css" href="<?php echo base_url() . 'assets/images/favicon.png' ?>">
@@ -33,7 +33,7 @@
 			<form action="<?php echo base_url() . 'register/regist' ?>" method="post">
 				<div class="form-group has-feedback">
 				<input type="hidden" name="ref" class="form-control" value="<?php echo $ref ?>"/>
-					<input type="text" name="name" class="form-control" placeholder="Your Name" required>
+					<input type="text" name="name" class="form-control" placeholder="Nama" required>
 					<span class="glyphicon glyphicon-user form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
@@ -53,7 +53,7 @@
 					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<input type="number" name="phone" class="form-control" placeholder="phone" required>
+					<input type="number" name="phone" class="form-control" placeholder="No hp" required>
 					<span class="glyphicon glyphicon-eye-close form-control-feedback"></span>
 				</div>
 				<div class="row">
@@ -61,7 +61,7 @@
 					</div>
 					<!-- /.col -->
 					<div class="col-xs-4">
-						<button type="submit" class="btn btn-primary btn-block btn-flat">Sign Up</button>
+						<button type="submit" class="btn btn-primary btn-block btn-flat">Daftar</button>
 					</div>
 					<!-- /.col -->
 				</div>
