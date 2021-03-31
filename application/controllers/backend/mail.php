@@ -8,11 +8,11 @@ class Mail extends CI_Controller
     function index()
     {
         $id = $this->input->post('id_order');
-        $hasil = $this->db->query("SELECT * FROM ORDERS
-        LEFT JOIN USER
-        ON ORDERS.ID_USER = USER.ID_USER
-        WHERE ID_ORDER = '$id'
-        AND DIKEMBALIKAN IS NULL");
+        $hasil = $this->db->query("SELECT * FROM orders
+        LEFT JOIN user
+        ON orders.id_user = user.id_user
+        WHERE id_order = '$id'
+        AND dikembalikan IS NULL");
         foreach($hasil->result_array() as $params){
             $this->send_email($params);
         }

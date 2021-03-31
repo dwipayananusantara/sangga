@@ -77,5 +77,9 @@ class Product extends CI_Controller
 		$x['kelengkapan_product']=$this->mproduct->getdtlproduct($kode, 'KELENGKAPAN');
 		$x['id_product']=$kode;
 		$this->load->view('front/v_detail_product',$x);
-	}
+    }
+    
+    function les_tari(){
+        $this->load->view('front/v_les_tari');
+    }
 }

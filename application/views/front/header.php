@@ -70,6 +70,11 @@
                             <li><a href="<?php echo base_url() . 'product/tari/' ?>">Kostum Tari</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown" bgcolor="blue"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pendaftaran</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?php echo base_url() . 'product/les_tari' ?>">Sanggar Tari</a></li>
+                        </ul>
+                    </li>
                     <li><a href="<?php echo base_url() . 'about' ?>">Tentang Kami</a></li>
                     <li><a href="<?php echo base_url() . 'kontak' ?>">Hubungi Kami</a></li>
                     <li><a href="<?php echo base_url() . 'review' ?>">Ulasan</a></li>
