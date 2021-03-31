@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 14, 2021 at 08:11 AM
+-- Generation Time: Mar 31, 2021 at 03:18 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -1348,6 +1348,34 @@ INSERT INTO `jenis_product` (`id_jenis_product`, `nama_jenis_product`, `is_delet
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `les_tari`
+--
+
+CREATE TABLE `les_tari` (
+  `id_less_tari` int(11) NOT NULL,
+  `no_registrasi` varchar(225) NOT NULL,
+  `nama_lengkap` varchar(225) NOT NULL,
+  `tempat_tanggal_lahir` varchar(225) NOT NULL,
+  `jenis_kelamin` enum('Laki-laki','Perempuan') NOT NULL,
+  `alamat` text NOT NULL,
+  `kategori` varchar(225) NOT NULL,
+  `no_telp` varchar(225) NOT NULL,
+  `email` varchar(225) NOT NULL,
+  `photo` varchar(225) NOT NULL,
+  `bukti_pembayaran` varchar(225) NOT NULL,
+  `status` enum('belum bayar','sudah bayar','lunas','mengikuti','selesai','batal') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `les_tari`
+--
+
+INSERT INTO `les_tari` (`id_less_tari`, `no_registrasi`, `nama_lengkap`, `tempat_tanggal_lahir`, `jenis_kelamin`, `alamat`, `kategori`, `no_telp`, `email`, `photo`, `bukti_pembayaran`, `status`) VALUES
+(1, '21212', 'andi', 'tasik', 'Laki-laki', 'petakan', 'kelompok a', '0982', 'andi@gmail.com', 'jpeg', '', 'belum bayar');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `metode_bayar`
 --
 
@@ -1406,7 +1434,7 @@ INSERT INTO `orders` (`id_order`, `ambil`, `kembali`, `id_product`, `tanggal`, `
 ('INV140321000014', '2021-03-12', '2021-03-16', 167, '2021-03-14', 'BELUM LUNAS', 49, 0, 0, 1, NULL, 'grab', 0, NULL, 's', 0, NULL),
 ('INV140321000015', '2021-03-19', '2021-03-20', 167, '2021-03-14', 'BELUM LUNAS', 49, 0, 0, 1, NULL, 'ambil_sendiri', 0, NULL, 's', 0, NULL),
 ('INV140321000016', '2021-03-15', '2021-03-18', 167, '2021-03-14', 'BELUM LUNAS', 49, 0, 0, 1, NULL, 'grab', 0, NULL, 'l', 0, NULL),
-('INV140321000017', '2021-03-16', '2021-03-18', 167, '2021-03-14', 'BELUM LUNAS', 49, 0, 0, 2, NULL, 'gojek', 0, NULL, 'm', 0, NULL),
+('INV140321000017', '2021-03-16', '2021-03-18', 167, '2021-03-14', 'BELUM LUNAS', 49, 0, 0, 2, NULL, 'gojek', 0, NULL, 'm', 1, NULL),
 ('INV140321000018', '2021-03-15', '2021-03-17', 167, '2021-03-14', 'BELUM LUNAS', 49, 0, 0, 1, NULL, 'ambil_sendiri', 0, NULL, 's', 0, NULL),
 ('INV140321000019', '2021-03-18', '2021-03-20', 167, '2021-03-14', 'BELUM LUNAS', 49, 0, 0, 1, NULL, 'ambil_sendiri', 0, NULL, 's', 0, NULL),
 ('INV140321000020', '2021-03-18', '2021-03-25', 167, '2021-03-14', 'BELUM LUNAS', 49, 0, 0, 5, NULL, 'ambil_sendiri', 0, NULL, 's', 0, NULL),
@@ -1414,6 +1442,7 @@ INSERT INTO `orders` (`id_order`, `ambil`, `kembali`, `id_product`, `tanggal`, `
 ('INV140321000022', '2021-03-16', '2021-03-20', 167, '2021-03-14', 'BELUM LUNAS', 49, 0, 0, 1, NULL, 'ambil_sendiri', 0, NULL, 'm', 0, NULL),
 ('INV140321000023', '2021-03-17', '2021-03-26', 167, '2021-03-14', 'BELUM LUNAS', 49, 0, 0, 12, NULL, 'ambil_sendiri', 0, NULL, 's', 0, NULL),
 ('INV140321000024', '2021-03-15', '2021-03-16', 167, '2021-03-14', 'BELUM LUNAS', 49, 0, 0, 2, NULL, 'ambil_sendiri', 0, NULL, 's', 0, NULL),
+('INV180321000025', '2021-03-19', '2021-03-20', 167, '2021-03-18', 'BELUM LUNAS', 50, 0, 0, 1, NULL, 'ambil_sendiri', 0, NULL, 's', 0, NULL),
 ('INV250221000003', '2021-02-25', '2021-02-25', 167, '2021-02-25', 'BELUM LUNAS', 42, 0, 0, 1, NULL, 'grab', 0, NULL, 'l', 1, NULL),
 ('INV250221000004', '2021-02-25', '2021-03-27', 166, '2021-02-25', 'BELUM LUNAS', 42, 0, 0, 1, NULL, 'gojek', 0, NULL, 'm', 1, NULL),
 ('INV250221000005', '2021-02-25', '2021-02-26', 168, '2021-02-25', 'BELUM LUNAS', 42, 0, 0, 12, NULL, 'ambil_sendiri', 0, NULL, 's', 1, NULL),
@@ -1451,7 +1480,8 @@ INSERT INTO `pembayaran` (`id_bayar`, `tgl_bayar`, `id_metode`, `id_order`, `jum
 (9, '2020-12-11', 7, 'INV111220000001', 3, 'Nadia Safira', '0a936a645fbece0ad5adf03108322640.png'),
 (10, '2020-12-11', 7, 'INV111220000002', 1, 'Nadia Safira', 'fc3fd7739083e595c6aad87cda1f968c.png'),
 (11, '2021-03-14', 7, 'INV140321000009', 1, 'ANDI', '9d8ab29595bcfb3c4fcd7c157c81a7d1.png'),
-(12, '2021-03-14', 7, 'INV140321000010', 1000000, 'andi', '74f0aeb00c6d4bf94cf441ba7958b819.png');
+(12, '2021-03-14', 7, 'INV140321000010', 1000000, 'andi', '74f0aeb00c6d4bf94cf441ba7958b819.png'),
+(13, '2021-03-18', 7, 'INV180321000025', 1000000, 'jaabdn', '2dac39245c3bb3f456e2bb31c8f3f2a1.png');
 
 -- --------------------------------------------------------
 
@@ -1577,7 +1607,7 @@ INSERT INTO `product` (`id_product`, `nama_product`, `harga_product`, `harga_dep
 (164, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Dayak terdiri dari:</p>\r\n', 'L', 11, 34, 0, NULL, 2, 0, -4, -1, 0),
 (165, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Sasak terdiri dari:</p>\r\n', 'P', 13, 30, 0, NULL, 2, 0, -4, -1, 0),
 (166, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Sasak terdiri dari:</p>\r\n', 'L', 13, 30, 0, NULL, 2, 0, -4, -1, 0),
-(167, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Rote terdiri dari:</p>\r\n', 'P', 13, 31, 0, NULL, 2, 4, 3, 1, 0),
+(167, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Rote terdiri dari:</p>\r\n', 'P', 13, 31, 0, NULL, 2, 3, 5, 1, 0),
 (168, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Rote terdiri dari:</p>\r\n', 'L', 13, 31, 0, NULL, 2, 0, -4, -1, 0);
 
 -- --------------------------------------------------------
@@ -1707,7 +1737,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id_user`, `nama`, `username`, `password`, `level`, `photo`, `phone`, `email`, `alamat`, `is_delete`, `is_verif`) VALUES
 (13, 'admin', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '1', NULL, 1234567878891332, 'khalidabdullah213@gmail.com', 'jalan jalan', 0, 1),
 (40, 'Nadia Safira', 'nadiasfira', '4a7d1ed414474e4033ac29ccb8653d9b', '5', NULL, 85843680400, 'nadiasafira338@gmail.com', 'cileungsi', 0, 1),
-(49, 'andi', 'andi', 'ce0e5bf55e4f71749eade7a8b95c4e46', '5', NULL, 81224204657, 'aandi30082001@gmail.com', 'andi', 0, 1);
+(49, 'andi', 'andi', 'ce0e5bf55e4f71749eade7a8b95c4e46', '5', NULL, 81224204657, 'aandi30082001@gmail.com', 'andi', 0, 1),
+(50, 'jaabdn', 'jaabdn', 'e87b6c6f391bd543bba2d363759de4e4', '5', NULL, 81224204652, 'andinich123@gmail.com', 'kantor dumbsway', 0, 1);
 
 --
 -- Indexes for dumped tables
@@ -1736,6 +1767,12 @@ ALTER TABLE `gambar_product`
 --
 ALTER TABLE `jenis_product`
   ADD PRIMARY KEY (`id_jenis_product`);
+
+--
+-- Indexes for table `les_tari`
+--
+ALTER TABLE `les_tari`
+  ADD PRIMARY KEY (`id_less_tari`);
 
 --
 -- Indexes for table `metode_bayar`
@@ -1818,6 +1855,12 @@ ALTER TABLE `jenis_product`
   MODIFY `id_jenis_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `les_tari`
+--
+ALTER TABLE `les_tari`
+  MODIFY `id_less_tari` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `metode_bayar`
 --
 ALTER TABLE `metode_bayar`
@@ -1827,7 +1870,7 @@ ALTER TABLE `metode_bayar`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -1857,7 +1900,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- Constraints for dumped tables
