@@ -6,6 +6,7 @@ class Product extends CI_Controller
     {
         parent::__construct();
         $this->load->model('mproduct');
+        $this->load->model('mlestari');
     }
     public function index()
     {
@@ -81,5 +82,23 @@ class Product extends CI_Controller
     
     function les_tari(){
         $this->load->view('front/v_les_tari');
+    }
+
+    function pembayaran_les_tari(){
+
+        $hasil_cek_no_registrasi = $this->mlestari->cari_no_registrasi_terdaftar($_GET['reg']);
+        if($hasil_cek_no_registrasi->num_rows > 0){
+
+            $data_row = $hasil_cek_no_registrasi->result_array();
+            $data['data'] = [$data_row ,$this->session->flashdata('sudah_daftar')];
+            $this->load->view('front/v_pembayaran_les_tari',$data);
+
+        }else{
+
+           redirect(base_url());
+
+        }
+
+        
     }
 }
