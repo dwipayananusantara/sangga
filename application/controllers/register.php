@@ -53,7 +53,7 @@ class Register extends CI_Controller
             'protocol'      => 'smtp',
             'smtp_host'     => 'ssl://smtp.gmail.com',
             'smtp_user'     => 'dwipayananusantara1234@gmail.com',
-            'smtp_pass'     => 'Sanggarnomor1',
+            'smtp_pass'     => 'Dwipa1234',
             'smtp_port'     => 465,
             'crlf'          => "\r\n",
             'newline'       => "\r\n"
@@ -86,7 +86,7 @@ class Register extends CI_Controller
             'smtp_host'     => 'ssl://smtp.googlemail.com',
             'smtp_port'     => 465,
             'smtp_user'     => 'dwipayananusantara1234@gmail.com',
-            'smtp_pass'     => 'Sanggarnomor1',
+            'smtp_pass'     => 'Dwipa1234',
             'mailtype'      => 'html',
             'charset'       => 'iso-8859-1',
             'wordwrap'      => TRUE
