@@ -25,4 +25,10 @@ class Mlestari extends CI_Model{
 		return $hasil;
 	}
 
+	function list_data_les_tari()
+	{
+		$hasil=$this->db->query("SELECT * FROM `les_tari` ORDER BY `kategori` ASC");
+		return $hasil;
+	}
+
 }

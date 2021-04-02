@@ -5,7 +5,19 @@ class Les_Tari extends CI_Controller
     {
         parent::__construct();
         $this->load->model('mlestari');
+        $this->load->model('morders');
         $this->load->library('upload');
+    }
+
+    function index()
+    {
+        if ($this->session->userdata('akses') != '1') {
+            redirect("/");
+        } else {
+            $x['data'] = $this->mlestari->list_data_les_tari();
+            $this->load->view('backend/v_les_tari', $x);
+        }
+        
     }
 
     function simpan()
