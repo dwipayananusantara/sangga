@@ -87,6 +87,15 @@ $jum_konfirmasi = $query3->num_rows();
 						</li>
 
 						<li>
+							<a href="<?php echo base_url() . 'backend/les_tari' ?>">
+								<i class="fa fa-child"></i> <span>Data Les Tari</span>
+								<span class="pull-right-container">
+									<small class="label pull-right bg-red"></small>
+								</span>
+							</a>
+						</li>
+
+						<li>
 							<a href="<?php echo base_url() . 'login/logout' ?>">
 								<i class="fa fa-sign-out"></i> <span>Sign Out</span>
 								<span class="pull-right-container">
@@ -132,6 +141,15 @@ $jum_konfirmasi = $query3->num_rows();
 								<i class="fa fa-bell"></i> <span>Data Sewa</span>
 								<span class="pull-right-container">
 									<small class="label pull-right bg-red"><?php echo $jum_order; ?></small>
+								</span>
+							</a>
+						</li>
+
+						<li>
+							<a href="<?php echo base_url() . 'backend/les_tari' ?>">
+								<i class="fa fa-child"></i> <span>Data Les Tari</span>
+								<span class="pull-right-container">
+									<small class="label pull-right bg-red"></small>
 								</span>
 							</a>
 						</li>

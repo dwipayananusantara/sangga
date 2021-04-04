@@ -132,6 +132,15 @@ $jum_konfirmasi = $query3->num_rows();
 							</a>
 						</li>
 
+						<li>
+							<a href="<?php echo base_url() . 'backend/les_tari' ?>">
+								<i class="fa fa-child"></i> <span>Data Les Tari</span>
+								<span class="pull-right-container">
+									<small class="label pull-right bg-red"></small>
+								</span>
+							</a>
+						</li>
+
 						<li class="active">
 							<a href="<?php echo base_url() . 'backend/laporan' ?>">
 								<i class="fa fa-file"></i> <span>Laporan</span>

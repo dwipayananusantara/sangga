@@ -74,8 +74,8 @@ class Les_Tari extends CI_Controller
                         $this->session->set_flashdata('sudah_daftar',false);
                         redirect('/product/pembayaran_les_tari?reg='. $regId);
                     } else {
-                        echo $this->session->set_flashdata('msg', 'warning');
-                        redirect('');
+                        // echo $this->session->set_flashdata('msg', 'warning');
+                        // redirect('');
                     }
                 }else {
                     $regId = md5(uniqid($_POST['email'], true));
