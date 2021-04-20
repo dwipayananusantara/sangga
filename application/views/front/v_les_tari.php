@@ -51,7 +51,7 @@
                     <option value="A">Kelas A (13 - 17 Tahun)</option>
                     <option value="B">Kelas B (8 - 12 Tahun)</option>
                     <option value="C">Kelas C (4 - 7 Tahun)</option>
-                    <option value="D">Kelas D (Dibawah 18 Tahun)</option>
+                    <option value="D">Kelas D (Diatas 18 Tahun)</option>
                     </select>
                 </div>
                 <div class="form-group">

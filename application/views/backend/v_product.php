@@ -256,7 +256,7 @@ $jum_konfirmasi = $query3->num_rows();
 
 						<li>
 							<a href="<?php echo base_url() . 'backend/les_tari' ?>">
-								<i class="fa fa-child"></i> <span>Data Les Tari</span>
+								<i class="fa fa-child"></i> <span>Data Kursus Tari</span>
 								<span class="pull-right-container">
 									<small class="label pull-right bg-red"></small>
 								</span>

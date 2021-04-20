@@ -25,7 +25,7 @@ $jum_konfirmasi = $query3->num_rows();
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Sanggar Seni Dwipayana Nusantara | Data Les Tari List</title>
+	<title>Sanggar Seni Dwipayana Nusantara | Data Kursus Tari List</title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<link rel="shorcut icon" type="text/css" href="<?php echo base_url() . 'assets/images/favicon.png' ?>">
@@ -84,7 +84,7 @@ $jum_konfirmasi = $query3->num_rows();
 
 						<li class="active">
 							<a href="<?php echo base_url() . 'backend/les_tari' ?>">
-								<i class="fa fa-child"></i> <span>Data Les Tari</span>
+								<i class="fa fa-child"></i> <span>Data Kursus Tari</span>
 								<span class="pull-right-container">
 									<small class="label pull-right bg-red"></small>
 								</span>
@@ -143,7 +143,7 @@ $jum_konfirmasi = $query3->num_rows();
 
 						<li class="active">
 							<a href="<?php echo base_url() . 'backend/les_tari' ?>">
-								<i class="fa fa-child"></i> <span>Data Les Tari</span>
+								<i class="fa fa-child"></i> <span>Data Kursus Tari</span>
 								<span class="pull-right-container">
 									<small class="label pull-right bg-red"></small>
 								</span>
@@ -251,8 +251,12 @@ $jum_konfirmasi = $query3->num_rows();
 													<td style="text-align:center;"><?php echo $email; ?></td>
 													<td style="text-align:center;"><?php echo $status; ?></td>
 													<td>
-														<a class="btn btn-xs btn-success" title="Telah lunas"><span class="fa fa-check"></span> </a>
-														<a class="btn btn-xs btn-info" title="Ikut sertakan dalam kelas les tari"><span class="fa fa-child"></span> </a>
+														<?php if($status === 'dalam ulasan'){ ?>
+															<a href="<?php echo base_url() . 'backend/les_tari/update_lunas/' . $no_registrasi ?> " class="btn btn-xs btn-success" title="Telah lunas"><span class="fa fa-check"></span> </a>
+														<?php } ?>
+														<?php if($status === 'sudah bayar'){ ?>
+															<a class="btn btn-xs btn-info" title="Ikut sertakan dalam kelas les tari"><span class="fa fa-child"></span> </a>
+														<?php } ?>
 														<a data-toggle="modal" href="#modalPembayaran<?php echo $no_registrasi; ?>" class="btn btn-xs btn-warning" title="Bukti pembayaran"><span class="fa fa-money "></span> </a>
 														<a class="btn btn-xs btn-warning" href="#modalPembayaran<?php echo $no_registrasi ?>" data-toggle="modal" title="Bukti Pembayaran"><span class="fa fa-file-image-o"></span> </a>
 														<a class="btn btn-xs btn-danger" title="Batalkan"><span class="fa fa-close"></span> </a>
