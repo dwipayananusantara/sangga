@@ -20,10 +20,66 @@
     <!--Header-->
     <?php include('header.php'); ?>
     <!-- /Header -->
-
+    
     <!--form-les-tari-->
-    <section class="container-less-tari">
+    <section class="container-less-tari" style="padding:50px"><div style="font-size:72px;font-weight:bold;color:black">Pendaftaran Les Tari</div></section>
+    <section class="container-less-tari"  style="padding-top:0px">
     <div class="card" style="width: 80rem; border: 0.5px solid black; padding: 20px">
+ 
+    <!-- SK -->
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-info">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Syarat Dan Ketentuan
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+      <ul>
+        <li>Murid sanggar dwipayana nusantara minimal umur 4 tahun.</li>
+        <li>kelas berlangsung selama 2 jam dengan waktu istirahat yang di sesuaikan dengan kebutuhan kelas.Selama waktu kelas murid akan dibimbing dari pemanasan , teknik tari yang benar dan koreografi yang sesuai. kelas yang di sediakan akan di tentukan berdasarkan tingkatan umur dan materi yang di berikan akan berbeda dengan tiap minggu nya.</li>
+        <li>Sanggar Tari Dwipayana Nusantara menyediakan kelas berdasarkan tingkat umur. Berikut Katagorinya :
+            <ul>
+                <li>Anak-anak
+                    <ul>
+                        <li>Kelas A :13-17 Tahun</li>
+                        <li>Kelas B :8-12 Tahun</li>
+                        <li>Kelas C :4-7 Tahun</li>
+                    </ul>
+                </li>
+                <li>Dewasa
+                    <ul>
+                        <li>Dibawah 18 Tahun</li>
+                        <ul>
+                            <li>Kelas ini terbuka untuk pemula tanpa harus memiliki dasar menari. Sehingga tepat untuk anda yang ingin mencoba menari.Materi yang akan diberikan akan berbeda dengan tiap minggunya, sehingga murid nantinya akan menguasai segala jenis Tari Nusantara.</li>
+                        </ul>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Detail Paket
+            <ul>
+                <li>
+                Paket kelas terdiri dari 4x pertemuan dalam satu Bulan. 1 pertemuan berdurasi 2 Jam (akan ada kelas tambahan jika murid di ikut sertakan dalam sebuah Event).
+                </li>
+                <li>
+                karena masih dalam kondisi Pandemi maka kelas dilakukan melalui Zoom/Google meeting yang akan di kirim kan melalui grup whatsapp.
+                </li>
+                <li>
+                Setiap murid akan mendapatkan Sebuah Kaos seragam serta 1 buah selendang. 
+                </li>
+            </ul>
+        </li>
+    </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+    <!-- SK END -->
+
         <div class="card-body">
             <form action="<?php echo base_url() ?>backend/les_tari/simpan" method="post" enctype="multipart/form-data" >
                 <div class="form-group">
@@ -51,7 +107,7 @@
                     <option value="A">Kelas A (13 - 17 Tahun)</option>
                     <option value="B">Kelas B (8 - 12 Tahun)</option>
                     <option value="C">Kelas C (4 - 7 Tahun)</option>
-                    <option value="D">Kelas D (Diatas 18 Tahun)</option>
+                    <option value="D">Kelas D (17 tahun - seterusnya)</option>
                     </select>
                 </div>
                 <div class="form-group">

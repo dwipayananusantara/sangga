@@ -38,10 +38,12 @@ error_reporting(0);
 						<li role="presentation" class="active"><a href="#resentnewcar" role="tab" data-toggle="tab">Kostum Terbaru</a></li>
 					</ul>
 				</div>
-				<!-- Recently Listed New Cars -->
+				<!-- Recently Listed New data -->
 				<div class="tab-content">
 					<div role="tabpanel" class="tab-pane active" id="resentnewcar">
-						<?php
+
+					<div style="background:red">
+					<?php
 						foreach ($product->result_array() as $i) {
 							$id_product = $i['id_product'];
 							$nama_product = $i['nama_product'];
@@ -53,7 +55,10 @@ error_reporting(0);
 
 							<div class="col-list-3">
 								<div class="recent-car-list">
-									<div class="car-info-box"> <a href="<?php echo base_url() . 'product/detail_product/' . $id_product ?>"><img src="<?php echo base_url() ?>front/images/baju/<?php echo htmlentities($gambar); ?>" class="img-responsive" alt="image"></a>
+									<div class="car-info-box" style="height:500px"> 
+										<a href="<?php echo base_url() . 'product/detail_product/' . $id_product ?>">
+											<img src="<?php echo base_url() ?>front/images/baju/<?php echo htmlentities($gambar); ?>" alt="image" style="height:100%; width:100%;object-fit: cover;">
+										</a>
 									</div>
 									<div class="car-title-m">
 										<h6><a href="<?php echo base_url() . 'product/detail_product/' . $id_product ?>" align='center'><?php echo htmlentities($nama_product); ?></a></h6>
@@ -65,6 +70,7 @@ error_reporting(0);
 								</div>
 							</div>
 						<?php } ?>
+					</div>
 
 					</div>
 				</div>

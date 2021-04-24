@@ -128,10 +128,18 @@ error_reporting(0);
                                         <div class="form-group">
                                             <label>Ukuran</label>
                                             <select class="form-control" name="ukuran" id="ukuran">
-                                                <option value="s">S</option>
+                                                <?php if($result['s'] > 0){  ?>
+                                                   <option value="s">S</option>
+                                                <?php } ?>
+                                                <?php if($result['m'] > 0){  ?>
                                                 <option value="m">M</option>
+                                                <?php } ?>
+                                                <?php if($result['l'] > 0){  ?>
                                                 <option value="l">L</option>
+                                                <?php } ?>
+                                                <?php if($result['xl'] > 0){  ?>
                                                 <option value="xl">XL</option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                         <div class="form-group">

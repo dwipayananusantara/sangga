@@ -1,13 +1,12 @@
 <header>
-    <div class="default-header">
-        <div class="container">
+    <div class="default-header" style="padding:0px;">
+        <div class="container" style="position:relative; padding-top:5px;padding-bottom:5px">
             <div class="row">
                 <div class="col-sm-2 col-md-2">
-                    <div class="logo"><a href="<?php echo base_url() ?>"><img src="<?php echo base_url() ?>front/images/icon.png" width="130px" height="130px" alt="image" /></a> </div>
+                    <div class="logo"><a href="<?php echo base_url() ?>"><img src="<?php echo base_url() ?>front/images/icon.png" width="100px" height="100px" alt="image" /></a> </div>
                 </div>
-                <div class="col-sm-8 col-md-8">
-                    <div class="header_info">
-                        <div class="header_widgets">
+                <div class="col-sm-8 col-md-8" style="display:flex;align-items:center;justify-content:center; min-height:100px; right:0; position:absolute;">
+                    <div class="header_widgets">
                             <div class="circle_icon"> <i class="fa fa-map-marker" aria-hidden="true"></i> </div>
                             <p class="uppercase_text">Sanggar Seni Dwipayana Nusantara</p>
                         </div>
@@ -29,7 +28,6 @@
                         <?php } else {
                             echo "Selamat Datang!";
                         } ?>
-                    </div>
                 </div>
             </div>
         </div>

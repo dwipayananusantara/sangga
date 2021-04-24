@@ -67,7 +67,45 @@ error_reporting(0);
 						</form>
 					</div> -->
 				<?php } ?>
-				<div class="col-md-12">
+				<div class="panel">
+					<!-- card -->
+					<div class="row">
+					<div class="col-md-12">
+						<!-- ROW -->
+						<div class="row">
+						<?php foreach ($review->result_array() as $k) :?>
+					<!-- CONTENT -->
+					<div class="col-sm-3">
+							<div class="thumbnail" style="padding:0px">
+							<div class="caption text-center" style="padding-left:0px;padding-top:0px;padding-right:0px" onclick="location.href='#'">
+								<div class="position-relative">
+								<?php if ($k['gambar_reivew'] != null) { ?>
+									<p><img src="<?php echo base_url() ?>front/images/review/<?php echo htmlentities($k['gambar_reivew']); ?>" style=" width: 100%;height:100%;object-fit: cover;"  /></p>
+								<?php } ?>
+								</div>
+								<h4 id="thumbnail-label"><a href="#" target="_blank"><?php if ($k['nama_product']){ echo $k['nama_product']; }else{ echo "&nbsp";} ?></a></h4>
+								<p><i class="glyphicon glyphicon-user light-red lighter bigger-120"></i>&nbsp;<?php echo $k['nama']; ?></p>
+								<div class="thumbnail-description smaller" style="min-height:100px;padding:5px"><?php echo $k['review']; ?></div>
+							</div>
+							<!-- <div class="caption card-footer text-center">
+								<ul class="list-inline">
+								<li><i class="people lighter"></i>&nbsp;7 Active Users</li>
+								<li></li>
+								<li><i class="glyphicon glyphicon-envelope lighter"></i><a href="#">&nbsp;Help</a></li>
+								</ul>
+							</div> -->
+							</div>
+						</div>
+						<!-- CONTENT END-->
+						<?php endforeach; ?>
+							
+						</div>
+						<!-- ROW END -->
+					</div>
+					</div>
+					<!-- card end -->
+					
+				<!-- <div class="col-md-12">
 					<h3>Review:</h3>
 					<div class="reviews-members pt-4 pb-4">
 						<div class="media">
@@ -92,7 +130,7 @@ error_reporting(0);
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</section>

@@ -33,11 +33,11 @@
 			<form action="<?php echo base_url() . 'login/auth' ?>" method="post">
 				<div class="form-group has-feedback">
 					<input type="hidden" name="ref" class="form-control" value="<?php echo $ref ?>" />
-					<input type="text" name="username" class="form-control" placeholder="Username" required>
+					<input type="text" name="username" class="form-control" placeholder="Nama Pengguna" required>
 					<span class="glyphicon glyphicon-user form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<input type="password" name="password" class="form-control" placeholder="Password" required>
+					<input type="password" name="password" class="form-control" placeholder="Kata Sandi" required>
 					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 				</div>
 				<div class="row">
