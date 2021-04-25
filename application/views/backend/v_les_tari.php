@@ -255,11 +255,12 @@ $jum_konfirmasi = $query3->num_rows();
 															<a href="<?php echo base_url() . 'backend/les_tari/update_lunas/' . $no_registrasi ?> " class="btn btn-xs btn-success" title="Telah lunas"><span class="fa fa-check"></span> </a>
 														<?php } ?>
 														<?php if($status === 'sudah bayar'){ ?>
-															<a class="btn btn-xs btn-info" title="Ikut sertakan dalam kelas les tari"><span class="fa fa-child"></span> </a>
+															<a href="<?php echo base_url() . 'backend/les_tari/update_ikut_kelas/' . $no_registrasi ?> " class="btn btn-xs btn-info" title="Ikut sertakan dalam kelas les tari"><span class="fa fa-child"></span> </a>
 														<?php } ?>
-														<a data-toggle="modal" href="#modalPembayaran<?php echo $no_registrasi; ?>" class="btn btn-xs btn-warning" title="Bukti pembayaran"><span class="fa fa-money "></span> </a>
-														<a class="btn btn-xs btn-warning" href="#modalPembayaran<?php echo $no_registrasi ?>" data-toggle="modal" title="Bukti Pembayaran"><span class="fa fa-file-image-o"></span> </a>
-														<a class="btn btn-xs btn-danger" title="Batalkan"><span class="fa fa-close"></span> </a>
+														<a class="btn btn-xs btn-warning" href="#modalImgPembayaran" data-toggle="modal" title="Bukti Pembayaran"><span class="fa fa-file-image-o"></span> </a>
+														<?php if($status !== 'batal'){ ?>
+															<a href="<?php echo base_url() . 'backend/les_tari/batal/' . $no_registrasi ?> " class="btn btn-xs btn-danger" title="Batalkan"><span class="fa fa-close"></span> </a>
+														<?php } ?>
 													</td>
 												</tr>
 											<?php endforeach; ?>
@@ -309,24 +310,58 @@ $jum_konfirmasi = $query3->num_rows();
 		$bukti_pembayaran = $a['bukti_pembayaran'];
 		$tgl_pengembalian_user = $a['tgl_pengembalian_user'];
 	?>
-<div id="modalPembayaran<?php echo $no_registrasi ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-						<h3 class="modal-title" id="myModalLabel">Pembayaran</h3>
-					</div>
-					<form class="form-horizontal" method="post" action="<?php echo base_url() . 'backend/orders/pembayaran_orders' ?>" enctype="multipart/form-data">
-						
-						<div class="modal-footer">
-							<button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-							<button type="submit" class="btn btn-primary">Update</button>
-						</div>
-					</form>
+	<div id="modalImgPembayaran"  class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+					<h3 class="modal-title" id="myModalLabel">Pembayaran</h3>
 				</div>
+				<div class="modal-body">
+
+				<div class="form-group">
+					<label class="control-label col-xs-3">Atas Nama</label>
+					<div class="col-xs-9">
+						<input name="nama" id="atasNama" class="form-control" type="text" value="<?php echo $nama_lengkap ?>" readonly>
+					</div>
+				</div>
+
+				<br />
+				<br />
+
+				<div class="form-group">
+					<label class="control-label col-xs-3">No Telepon</label>
+					<div class="col-xs-9">
+						<input name="nama" id="atasNama" class="form-control" type="text" value="<?php echo $no_telp ?>" readonly>
+					</div>
+				</div>
+
+				<br />
+				<br />
+
+				<div class="form-group">
+					<label class="control-label col-xs-3">Bukti Transfer</label>
+					<div class="col-xs-9">
+						<input type="image" src="<?php echo base_url() . 'assets/les_tari/bukti_pembayaran/' . $bukti_pembayaran ?>" alt="Submit" width="250" height="250">
+					</div>
+				</div>
+
+				</div>
+
+					<div class="modal-footer">
+						<button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
+					</div>
+				</form>
 			</div>
 		</div>
+	</div>
 <?php endforeach; ?>
+
+
+
+	<?php
+		$this->load->view('backend/v_loader_js');
+	?>
 
 	<?php if ($this->session->flashdata('msg') == 'info') : ?>
 		<script type="text/javascript">
@@ -403,6 +438,7 @@ $jum_konfirmasi = $query3->num_rows();
 	<?php else : ?>
 
 	<?php endif; ?>
+	
 </body>
 
 </html>

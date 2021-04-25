@@ -146,9 +146,25 @@ class Les_Tari extends CI_Controller
 
     function update_lunas($no_registrasi)
     {
-        var_dump($no_registrasi);
         if($no_registrasi){
             $this->mlestari->sudah_bayar($no_registrasi);
+            redirect('/backend/les_tari');
+        }
+    }
+
+    function update_ikut_kelas($no_registrasi)
+    {
+        if($no_registrasi){
+            $this->mlestari->sudah_ikut($no_registrasi);
+            redirect('/backend/les_tari');
+        }
+    }
+
+    
+    function batal($no_registrasi)
+    {
+        if($no_registrasi){
+            $this->mlestari->batal_ikut($no_registrasi);
             redirect('/backend/les_tari');
         }
     }

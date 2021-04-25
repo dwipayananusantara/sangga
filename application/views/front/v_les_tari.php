@@ -52,7 +52,7 @@
                 </li>
                 <li>Dewasa
                     <ul>
-                        <li>Dibawah 18 Tahun</li>
+                        <li>Diatas 18 Tahun</li>
                         <ul>
                             <li>Kelas ini terbuka untuk pemula tanpa harus memiliki dasar menari. Sehingga tepat untuk anda yang ingin mencoba menari.Materi yang akan diberikan akan berbeda dengan tiap minggunya, sehingga murid nantinya akan menguasai segala jenis Tari Nusantara.</li>
                         </ul>
@@ -107,7 +107,7 @@
                     <option value="A">Kelas A (13 - 17 Tahun)</option>
                     <option value="B">Kelas B (8 - 12 Tahun)</option>
                     <option value="C">Kelas C (4 - 7 Tahun)</option>
-                    <option value="D">Kelas D (17 tahun - seterusnya)</option>
+                    <option value="D">Kelas D (18 tahun - seterusnya)</option>
                     </select>
                 </div>
                 <div class="form-group">

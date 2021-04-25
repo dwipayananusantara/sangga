@@ -37,4 +37,15 @@ class Mlestari extends CI_Model{
 		return $hasil;
 	}
 
+	function sudah_ikut($no_registrasi)
+	{
+		$hasil=$this->db->query("UPDATE les_tari SET status = 'mengikuti' WHERE no_registrasi = '$no_registrasi'");
+		return $hasil;
+	}
+
+	function batal_ikut($no_registrasi)
+	{
+		$hasil=$this->db->query("UPDATE les_tari SET status = 'batal' WHERE no_registrasi = '$no_registrasi'");
+		return $hasil;
+	}
 }
