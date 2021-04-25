@@ -139,5 +139,5 @@ class Morders extends CI_Model
 		where orders.id_order = '$inv'
         order by tanggal desc");
 		return $hasil;
-	}
+    }
 }

@@ -224,6 +224,7 @@ $jum_konfirmasi = $query3->num_rows();
 												$is_rusak = $a['is_rusak'];
 												$bukti_transfer = $a['bukti_transfer'];
 												$tgl_pengembalian_user = $a['tgl_pengembalian_user'];
+												$is_notif=$a['is_notif']
 
 											?>
 												<tr>
@@ -248,7 +249,7 @@ $jum_konfirmasi = $query3->num_rows();
 																<?php endif ?>
 																<form method="post" action="<?php echo base_url() . 'backend/mail/' ?>" enctype="multipart/form-data">
 																	<input type="hidden" class="form-control" name="id_order" value="<?php echo $id ?>" /><br>
-																	<button class="btn btn-xs btn-info" type="submit" name="submit">Send Email</button>
+																	<button class="btn btn-xs btn-info" type="submit" name="submit" <?= $is_notif ? 'disabled' : '' ?>>Send Email</button>
 																</form><br />
 																<a class="btn btn-xs btn-warning" href="#modalImgPembayaran<?php echo $id ?>" data-toggle="modal" title="Bukti Pembayaran"><span class="fa fa-file-image-o"></span> </a>
 																<a class="btn btn-xs btn-danger" href="#ModalHilang<?php echo $id; ?>" data-toggle="modal" title="Hilang/rusak"><span class="fa fa-chain-broken"></span> </a>

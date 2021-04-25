@@ -16,6 +16,7 @@ class Mail extends CI_Controller
         foreach($hasil->result_array() as $params){
             $this->send_email($params);
         }
+        $this->db->query("UPDATE orders SET is_notif = 1 WHERE id_order = '$id'");
         redirect("backend/orders");
     }
     public function send_email($params)
@@ -57,7 +58,7 @@ class Mail extends CI_Controller
                 Salam<br /><br />
                 DwipaNusa");
 
-        // Tampilkan pesan sukses atau erro
+        // Tampilkan pesan sukses atau error
         if ($this->email->send()) {
             return (array('status' => 'Success'));
         } else {

@@ -178,7 +178,7 @@ $jum_konfirmasi = $query3->num_rows();
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Data Sewa
+					Data Murid
 					<small></small>
 				</h1>
 				<ol class="breadcrumb">
