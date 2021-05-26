@@ -26,7 +26,7 @@ error_reporting(0);
                     <h1>Tentang Kami</h1>
                 </div>
                 <ul class="coustom-breadcrumb">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Beranda</a></li>
                     <li>Tentang Kami</li>
                 </ul>
             </div>

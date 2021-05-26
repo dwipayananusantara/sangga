@@ -72,7 +72,7 @@ class Les_Tari extends CI_Controller
                 
                         // arahin ke view pembayaran bila daftar selesai
                         $this->session->set_flashdata('sudah_daftar',false);
-                        redirect('/product/pembayaran_les_tari?reg='. $regId);
+                        // redirect('/product/pembayaran_les_tari?reg='. $regId);
                     } else {
                         // echo $this->session->set_flashdata('msg', 'warning');
                         // redirect('');
@@ -93,8 +93,22 @@ class Les_Tari extends CI_Controller
             
                     // arahin ke view pembayaran bila daftar selesai
                     $this->session->set_flashdata('sudah_daftar',false);
-                    redirect('/product/pembayaran_les_tari?reg='. $regId);
+                    // redirect('/product/pembayaran_les_tari?reg='. $regId);
                 }
+
+                // send email
+                // $params['message'] = "Yang Terhormat,
+                // Sdr/sdri " . $_POST['nama_lengkap'] . "<br /><br />
+                // Terima kasih telah mendaftarkan diri anda pada Les Tari Sanggar Seni Dwipayana Nusantara.<br /><br />
+                // Silahkan klik link berikut untuk melakukan pembayaran anda<br /><br />
+                // <a href=\""  . base_url() . 'product/pembayaran_les_tari?reg='. $regId . "\">Klik Untuk Pembayaran</a><br /><br />
+                // Atas perhatian dan kerjasamanya saya ucapkan terima kasih.<br /><br />
+                // Salam hormat,<br /><br />
+                // DwipaNusa";
+                // $params['email'] = $_POST['email'];
+                // $this->send_email($params);
+
+                redirect('/product/pembayaran_les_tari?reg='. $regId);
             }
         }
     }
@@ -134,13 +148,49 @@ class Les_Tari extends CI_Controller
                     'dalam ulasan'
                 );
 
-                // arahin ke view pembayaran bila daftar selesai
-                // $this->session->set_flashdata('sudah_daftar',false);
+                // send email
+                $params['message'] = "
+                Terima kasih telah melakukan pembayaran untuk Les Tari di Sanggar Seni Dwipayan Nusantar.<br /><br />
+                Silahkan tunggu informasi selanjutnya dari kami<br /><br />
+                Atas perhatian dan kerjasamanya saya ucapkan terima kasih.<br /><br />
+                Salam hormat,<br /><br />
+                DwipaNusa";
+                $params['email'] = $_POST['email'];
+                $this->send_email($params);
+                
+                $this->session->set_flashdata("sukses_daftar_les_tari", true);
                 redirect('/');
             }
         } else {
             echo $this->session->set_flashdata('msg', 'warning');
             redirect('');
+        }
+    }
+
+    function send_email($params)
+    {
+        $config = array(
+            'mailtype'      => 'html',
+            'charset'       => 'utf-8',
+            'protocol'      => 'smtp',
+            'smtp_host'     => 'ssl://smtp.gmail.com',
+            'smtp_user'     => 'dwipayananusantara1234@gmail.com',
+            'smtp_pass'     => 'Dwipa1234',
+            'smtp_port'     => 465,
+            'crlf'          => "\r\n",
+            'newline'       => "\r\n"
+        );
+
+        $message = $params['message'];
+        $this->load->library('email', $config);
+        $this->email->from('dwipayananusantara1234@gmail.com'); // change it to yours
+        $this->email->to($params['email']); // change it to yours
+        $this->email->subject('Registrasi');
+        $this->email->message($message);
+        if ($this->email->send()) {
+            // echo 'Email sent.';
+        } else {
+           return show_error($this->email->print_debugger());
         }
     }
 

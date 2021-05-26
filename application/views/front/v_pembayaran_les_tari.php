@@ -30,14 +30,14 @@
     </br></br>
         <div class="card-body">
             <form action="<?php echo base_url() ?>backend/les_tari/memperbarui_bukti_pembayaran" method="post" enctype="multipart/form-data" >
-            <!-- <?php var_dump($data[0][0]['alamat']); ?> -->
+            <!-- <?php //var_dump($data[0][0]['alamat']); ?> -->
                 <div class="form-group">
                     <label class="control-label">Nomer Registrasi</label>
                     <input class="form-control" readonly required value="<?php echo  $data[0][0]['no_registrasi']; ?>" type="text" name="no_registrasi" id="no_registrasi">
                 </div>
                 <div class="form-group">
                     <label class="control-label">Alamat Email</label>
-                    <input class="form-control" disabled value="<?php echo  $data[0][0]['email']; ?>" name="email" id="email" type="email" required readonly>
+                    <input class="form-control"  value="<?php echo  $data[0][0]['email']; ?>" name="email" id="email" type="email" required readonly>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Telepon</label>
@@ -56,7 +56,7 @@
                     <input class="form-control" disabled name="jenis_kelamin" value="<?php echo  $data[0][0]['jenis_kelamin']; ?>" id="jenis_kelamin" type="text">
                 </div>
                 <div class="form-group">
-                    <label for="kategori">Kategori</label>
+                    <label for="kategori">Metode Pembayaran</label>
                         <select class="form-control white_bg" id="metode_pembayaran" name="metode_pembayaran" require>
                             <option value="BCA">BCA - 12345672123 - (Rp.200.000)</option>
                             <option value="BRI">BRI - 44444672123 - (Rp.200.000)</option>

@@ -40,7 +40,7 @@ error_reporting(0);
                     <h1>Hubungi Kami</h1>
                 </div>
                 <ul class="coustom-breadcrumb">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Beranda</a></li>
                     <li>Hubungi Kami</li>
                 </ul>
             </div>

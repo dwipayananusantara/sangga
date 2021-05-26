@@ -118,6 +118,20 @@ error_reporting(0);
 		});
 	</script>
 
+	<!-- sweet alert -->
+	<?php if ($this->session->flashdata('sukses_daftar_les_tari')): ?>
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script>
+			Swal.fire({
+				title: 'Terimakasih',
+				text: "Pendaftaran anda sedang kami proses",
+				icon: 'success',
+				confirmButtonColor: 'blue',
+				confirmButtonText: 'Ok'
+			})
+		</script>
+	<?php endif; ?>
+
 </body>
 
 </html>

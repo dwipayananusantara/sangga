@@ -32,11 +32,11 @@ error_reporting(0);
 		<div class="container">
 			<div class="page-header_wrap">
 				<div class="page-heading">
-					<h1>Review</h1>
+					<h1>ULASAN</h1>
 				</div>
 				<ul class="coustom-breadcrumb">
-					<li><a href="#">Home</a></li>
-					<li>Review</li>
+					<li><a href="#">Beranda</a></li>
+					<li>Ulasan</li>
 				</ul>
 			</div>
 		</div>
