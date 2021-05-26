@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'dev_sanggar';
+$db['default']['username'] = 'dwipanus';
+$db['default']['password'] = 'Lif:5-BYq2T57s';
+$db['default']['database'] = 'dwipanus_sanggar';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
