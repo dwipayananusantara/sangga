@@ -24,7 +24,7 @@ error_reporting(0);
     $result = $get_product->row_array();
     ?>
     <!--Listing-Image-Slider-->
-    <p style="text-align:center;"><img src="<?php echo base_url() ?>front/images/baju/<?php echo htmlentities($result['gambar']); ?>" /></p>
+    <p style="text-align:center;"><img src="<?php echo base_url() ?>front/images/baju/<?php echo htmlentities($result['gambar']); ?>" width="500"/></p>
     <!-- <section id="listing_img_slider"> -->
         <!-- <p style="text-align:center;"><img src="<?php echo base_url() ?>front/images/baju/<?php echo htmlentities($result['gambar']); ?>" class="img-responsive"></p> -->
     <!-- </section> -->
