@@ -22,9 +22,9 @@ error_reporting(0);
 	<!-- Banners -->
 	<div id="owl-demo">
 		<div class="item"><center><img width="1300" height="500" src="<?php echo base_url() ?>assets/images/banner/<?php echo htmlentities('banner-0.jpg'); ?>" alt="Owl Image"></center></div>
-		<div class="item"><center><img width="1300" height="500" src="<?php echo base_url() ?>assets/images/banner/<?php echo htmlentities('banner-1.jpg'); ?>" alt="Owl Image"></center></div>
-		<div class="item"><center><img width="1300" height="500" src="<?php echo base_url() ?>assets/images/banner/<?php echo htmlentities('banner-2.jpg'); ?>" alt="Owl Image"></center></div>
-		<div class="item"><center><img width="1300" height="500" src="<?php echo base_url() ?>assets/images/banner/<?php echo htmlentities('banner-3.jpg'); ?>" alt="Owl Image"></center></div>
+		<div class="item"><center><img width="1300" height="500" src="<?php echo base_url() ?>assets/images/banner/<?php echo htmlentities('banner-1.jpeg'); ?>" alt="Owl Image"></center></div>
+		<div class="item"><center><img width="1300" height="500" src="<?php echo base_url() ?>assets/images/banner/<?php echo htmlentities('banner-2.jpeg'); ?>" alt="Owl Image"></center></div>
+		<div class="item"><center><img width="1300" height="500" src="<?php echo base_url() ?>assets/images/banner/<?php echo htmlentities('banner-3.jpeg'); ?>" alt="Owl Image"></center></div>
 	</div>
 	<!-- /Banners -->
 
