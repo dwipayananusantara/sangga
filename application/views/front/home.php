@@ -21,10 +21,10 @@ error_reporting(0);
 
 	<!-- Banners -->
 	<div id="owl-demo">
+		<div class="item"><center><img width="1300" height="500" src="<?php echo base_url() ?>assets/images/banner/<?php echo htmlentities('dwipa.jpg'); ?>" alt="Owl Image"></center></div>
 		<div class="item"><center><img width="1300" height="500" src="<?php echo base_url() ?>front/images/baju/<?php echo htmlentities('Banner1.png'); ?>" alt="Owl Image"></center></div>
 		<div class="item"><center><img width="1300" height="500" src="<?php echo base_url() ?>front/images/baju/<?php echo htmlentities('Banner2.png'); ?>" alt="Owl Image"></center></div>
 		<div class="item"><center><img width="1300" height="500" src="<?php echo base_url() ?>front/images/baju/<?php echo htmlentities('Banner3.png'); ?>" alt="Owl Image"></center></div>
-		<div class="item"><center><img width="1300" height="500" src="<?php echo base_url() ?>assets/images/banner/<?php echo htmlentities('dwipa.jpg'); ?>" alt="Owl Image"></center></div>
 	</div>
 	<!-- /Banners -->
 
@@ -108,7 +108,7 @@ error_reporting(0);
 
 			$("#owl-demo").owlCarousel({
 
-				// autoPlay: 3000, //Set AutoPlay to 3 seconds
+				autoPlay: 3000, //Set AutoPlay to 3 seconds
 
 				items: 1,
 				itemsDesktop: [1199, 3],
