@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 13, 2021 at 11:19 AM
+-- Generation Time: Jun 13, 2021 at 11:24 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.3.28
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `prod_sanggar_isi`
+-- Database: `prod_sanggar`
 --
 
 -- --------------------------------------------------------
@@ -61,6 +61,126 @@ CREATE TABLE `gambar_product` (
   `gambar` varchar(40) DEFAULT NULL,
   `deskripsi` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `gambar_product`
+--
+
+INSERT INTO `gambar_product` (`id_gambar`, `id_product`, `gambar`, `deskripsi`) VALUES
+(8, 15, 'e18dd48af650647e90f3f302d1677d40.jpg', NULL),
+(9, 10, 'e18dd48af650647e90f3f302d1677d40.jpg', NULL),
+(10, 14, 'e18dd48af650647e90f3f302d1677d40.jpg', NULL),
+(11, 64, 'b68a260620a6bedd5d2006bb909d2c31.jpg', NULL),
+(12, 65, 'dcf53578c9e08411724f803136b72387.jpg', NULL),
+(13, 66, 'b29d7636dc4961cb5a2bcbf31a64d9bc.jpg', NULL),
+(14, 67, 'dfd690e7d460c2a56065689b69235458.jpg', NULL),
+(15, 68, '28d49f393524407c8f7a271dd78ab1fd.jpg', NULL),
+(16, 69, 'dd0f9dc55f72873b90562d82bdde8572.jpg', NULL),
+(17, 70, '9257743bd503e01f1266310357bc0daf.jpg', NULL),
+(19, 61, 'e70028bc567387bf3dc2efc7f506e0cc.jpg', NULL),
+(20, 60, '5b044bc6af0d11ded704382fd5839a30.jpg', NULL),
+(21, 8, 'a9c200f1ed0f3641af7e3e6c18686758.jpg', NULL),
+(22, 59, '2adf93c8f4b8af2aa0aa927db86497b0.jpg', NULL),
+(23, 55, '0faa57ed8a2128d1c2cd60344df36580.jpg', NULL),
+(24, 36, '7cb697f85361ed85df2ce5ca32912ab9.jpg', NULL),
+(25, 71, '9012a5667577d445c1d75a5615006dbd.jpg', NULL),
+(26, 72, '6c5770e2c7fb83a6a5f180ed33b89102.jpg', NULL),
+(27, 73, 'a08c7b3092926a92433e86ac91f7160a.jpg', NULL),
+(28, 74, '51d27a775450ef74c7ab87201879c4f4.jpg', NULL),
+(29, 75, '7be994195dd8cc88e5368ddc5339ba80.jpg', NULL),
+(30, 76, '9fd675b496583039e4bbb2f44afef2f9.jpg', NULL),
+(31, 77, '2b96de516ab471fbff33d98e1b28a501.jpg', NULL),
+(32, 78, '3b55ec5db15d2c4392c1d878a5c9125d.jpg', NULL),
+(33, 79, '67bb4d206e5a57737e7ded8ea2d5b9cf.jpg', NULL),
+(34, 80, 'f1d8594320fc7adfa06f774a5168bad4.jpg', NULL),
+(35, 81, '5f40228f96cfc4643d83ca343df5b87d.jpg', NULL),
+(36, 82, '77adeb7a92d0df80f508ee22d16edf79.jpg', NULL),
+(37, 83, '63f687ab2e6d67049876716f87a02bf0.jpg', NULL),
+(38, 84, 'c1a88c1c8a83f99523600785ebfe3203.jpg', NULL),
+(39, 85, '16e7d75604c4ee90e611396d0e1cc304.jpg', NULL),
+(40, 86, '8e874a8e88930ffe3618f79b2212abc3.jpg', NULL),
+(41, 87, 'adb8e8dbb31fbd8f6a2ec3315cfb841f.jpg', NULL),
+(42, 88, 'b96fc6bddb2d7b3778f322db9fb1f469.jpg', NULL),
+(43, 89, '3b9dfdbd1e046454dfa01f351a4c0b0e.jpg', NULL),
+(44, 90, 'a62d0f76dd74ed3d6cfc83f9fb885d80.jpg', NULL),
+(45, 91, '43344258de061b4006c58a4e58b4cc10.jpg', NULL),
+(46, 92, '2830fac461e0331700f566c384e83c15.jpg', NULL),
+(47, 93, '1ea4357e639f22b1d533b9cc7462dd83.jpg', NULL),
+(48, 94, 'd021083cd7b8ce8ff9249eb8ddfbccf7.jpg', NULL),
+(49, 95, '8ee31ec4609e3bc516f7bbf87abedb86.jpg', NULL),
+(50, 96, '02454213eb3982c45196ea543dbf241a.jpg', NULL),
+(51, 97, '74d579bb73b87dce0bcc806a58c53af3.JPG', NULL),
+(52, 98, 'a504bca025b6bafe64dbaedd7fa390ad.JPG', NULL),
+(53, 99, '91b2e3047deca3887d0951f67f6e5c00.jpg', NULL),
+(54, 100, '45352d5fac5dc8d9199b7779f87ce0fd.jpg', NULL),
+(55, 101, 'c0c5278a02f84bdecc905ce959201d0a.jpg', NULL),
+(56, 102, '1cdc702b50691180eb155df85d11a63a.jpg', NULL),
+(57, 103, '0806967f27956d8bc99579487e16750f.jpg', NULL),
+(58, 104, 'bf048fd4dbe3d312baacbb133632771f.jpg', NULL),
+(59, 105, '789416600f4e7e3f1cf778652c5d2fdd.jpg', NULL),
+(60, 106, 'c3f3bac9207bf0209bc3854356376836.jpg', NULL),
+(61, 107, '9e9376a9c4b773ce30aa37a6eca3867a.jpg', NULL),
+(62, 108, 'f91c13ca927a0383103a865f24f22b28.jpg', NULL),
+(63, 109, 'a11fe2eeaf6faf85ad31c86a2eb0c1ef.jpg', NULL),
+(64, 110, '8ec2b22f488f9250a2f6a77caa0c529c.jpg', NULL),
+(65, 111, '0f9bc725fc9402ffe4dd8ca040311ca9.jpg', NULL),
+(66, 112, 'c18c61603d1855706f31c837eba275ff.jpg', NULL),
+(67, 113, 'ef6128597c7649d487ef04727ac49647.jpg', NULL),
+(68, 114, '54bc1832dc6381aa6db6a336bd2108fe.jpg', NULL),
+(69, 115, '6ec210a8d70074939f9d1a0383a67904.jpg', NULL),
+(70, 116, '731ccc94f6aae7577d1d5d9cfb9943d8.jpg', NULL),
+(71, 117, '57d83c35e005ad90d47a6e652c1d7df7.jpg', NULL),
+(72, 118, '3da40b2cd97d21ad838ea5762a75f882.jpg', NULL),
+(73, 119, '33ae09448c167a032fce7c5b96203e97.jpg', NULL),
+(74, 120, '52484984e5d9e6ef56d62117b6a5b534.jpg', NULL),
+(75, 121, '6393762466c2921da44f13ab88726cdb.jpg', NULL),
+(76, 122, '1ec867ebb1fc73e18e28dcac30ee1a30.jpg', NULL),
+(77, 123, '46588fe500e45f00408de729ea6fcef1.jpg', NULL),
+(78, 124, 'ba0293a039246a6806ea7f74205ddad3.jpg', NULL),
+(79, 125, '3b3e63d5c641c563c3f86452d4d74bef.jpg', NULL),
+(80, 126, 'febc8666c3cc6f6f07406247502f461e.jpg', NULL),
+(81, 127, '7a87c0e0e964909a145efbbf0e60cc0d.jpg', NULL),
+(82, 128, '65e6492035dcc57351d204c2e9ba1b78.jpg', NULL),
+(83, 129, 'beb31c8b44857d9865bb7fff0bf1e5d9.jpg', NULL),
+(84, 130, '09d4729cd4bc6800d53a18ae0edc8fc4.jpg', NULL),
+(85, 131, '9b517fe79afcb5e8a03369d9e676194d.jpg', NULL),
+(86, 132, '696892793f91e648b89de9a1536669b1.jpg', NULL),
+(87, 133, '963ca819a07d434c54edc46da05db766.jpg', NULL),
+(88, 134, 'e62cb5f5595a07db7950e60d88c899c3.jpg', NULL),
+(89, 135, '539a8f9780b40e3565b94b42c472b8da.jpg', NULL),
+(90, 136, '999c0509f3f17a6854bebb049ac45b3d.jpg', NULL),
+(91, 137, 'e9a995efeb48bbf3e4d0dbf6fcac91f1.jpg', NULL),
+(92, 138, 'a61a74eea5fa33219619ac3cf2aef7c4.jpg', NULL),
+(93, 139, 'a9d95b7e99832b27781b8733f95600e2.jpg', NULL),
+(94, 140, '5539147856fda55322475e0f791a9216.jpg', NULL),
+(95, 141, 'cc8faa02051c8ac92e2e8234b5ab4693.jpg', NULL),
+(96, 142, 'ddb53c2b8bf669d8501fda497c35abf0.jpg', NULL),
+(97, 143, 'fae9b35609301882a7957c8147004665.jpg', NULL),
+(98, 144, 'fce390eadcaf0ee2d6a9fec03a199da0.jpg', NULL),
+(99, 145, '702b211081832f4424b68791c2e155ca.jpg', NULL),
+(100, 146, '2b71bd259c2e3626c575eefd644f10e0.jpg', NULL),
+(101, 147, 'a86cf1927531291972072349ecf02c61.jpg', NULL),
+(102, 148, 'db91402db9f37bac2f37d1cf63eac2b5.jpg', NULL),
+(103, 149, '7322972b9148458ad833d6f3c0aaf859.jpg', NULL),
+(104, 150, '764d6eadc2d4300617e533cc91ceef2f.jpg', NULL),
+(105, 151, 'f02d4aec7b70e83623dc9a306f551648.jpg', NULL),
+(106, 152, '0e535cc109ff4462862786c5002438d0.jpg', NULL),
+(107, 153, '3095a66b027b6b2734a2cf8a7ccc2fc3.jpg', NULL),
+(108, 154, 'bcc7f667306155c82b217077c6c1c60e.jpg', NULL),
+(109, 155, '548acaae359fe8196b14cf40522d0050.jpg', NULL),
+(110, 156, '81ee0423853bd2a925be98c6337704bb.jpg', NULL),
+(111, 157, '24753c9da9b1bb6a822aa062e5bb7759.jpg', NULL),
+(112, 158, '9f93b8b7138927a1d555e0acf9a43bba.jpg', NULL),
+(113, 159, 'f00facd1c592bb66c666e3ff615b9968.jpg', NULL),
+(114, 160, '818a2844c185318245cf6b4f8d259999.jpeg', NULL),
+(115, 161, 'b5b08af904b8ffc006e64831bff13049.jpeg', NULL),
+(116, 162, '5e8f369a9b710464c0d5b9e50acc3fcc.jpg', NULL),
+(117, 163, 'ba8a14dcbc7aab817144bf711ba873e2.jpg', NULL),
+(118, 164, '32667645434360e4cf9b7e69c9cf6a0c.jpg', NULL),
+(119, 165, '18a663f4162bb983ddd31be7d1aca3a9.jpg', NULL),
+(120, 166, '5a66a5dcba791a05380646e1128d0e22.jpeg', NULL),
+(121, 167, '45581f03add7a3a6d9f56164cf2a0bf7.jpg', NULL),
+(122, 168, 'd0f9d27ff6dbc27c9571d41ee0b73aea.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -517,7 +637,7 @@ ALTER TABLE `detail_product`
 -- AUTO_INCREMENT for table `gambar_product`
 --
 ALTER TABLE `gambar_product`
-  MODIFY `id_gambar` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_gambar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 
 --
 -- AUTO_INCREMENT for table `jenis_product`
@@ -601,14 +721,6 @@ ALTER TABLE `orders`
 ALTER TABLE `pembayaran`
   ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`id_metode`) REFERENCES `metode_bayar` (`id_metode`),
   ADD CONSTRAINT `pembayaran_ibfk_2` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id_order`);
-
---
--- Constraints for table `product`
---
-ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`id_jenis_product`) REFERENCES `jenis_product` (`id_jenis_product`),
-  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`id_pulau`) REFERENCES `pulau` (`id_pulau`),
-  ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`id_provinsi`) REFERENCES `provinsi` (`id_provinsi`);
 
 --
 -- Constraints for table `review`
