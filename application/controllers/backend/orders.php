@@ -84,6 +84,7 @@ class Orders extends CI_Controller
                     $metode = $this->input->post('metode');
                     $this->morders->simpan_bukti($kode, $nama, $metode, $jumlah, $gambar);
                     echo $this->session->set_flashdata('msg', 'success');
+                    echo $this->session->set_flashdata('sukses_pembayaran', true);
                     redirect('');
                 } else {
                     echo $this->session->set_flashdata('msg', 'warning');

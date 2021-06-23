@@ -133,6 +133,20 @@ error_reporting(0);
 		</script>
 	<?php endif; ?>
 
+	<!-- sweet alert -->
+	<?php if ($this->session->flashdata('sukses_pembayaran')): ?>
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script>
+			Swal.fire({
+				title: 'Terimakasih',
+				text: "Pembayaran anda sedang kami proses",
+				icon: 'success',
+				confirmButtonColor: 'blue',
+				confirmButtonText: 'Ok'
+			})
+		</script>
+	<?php endif; ?>
+
 </body>
 
 </html>
