@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 13, 2021 at 11:24 AM
+-- Generation Time: Jun 23, 2021 at 05:04 PM
 -- Server version: 10.4.19-MariaDB
--- PHP Version: 7.3.28
+-- PHP Version: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -67,24 +67,6 @@ CREATE TABLE `gambar_product` (
 --
 
 INSERT INTO `gambar_product` (`id_gambar`, `id_product`, `gambar`, `deskripsi`) VALUES
-(8, 15, 'e18dd48af650647e90f3f302d1677d40.jpg', NULL),
-(9, 10, 'e18dd48af650647e90f3f302d1677d40.jpg', NULL),
-(10, 14, 'e18dd48af650647e90f3f302d1677d40.jpg', NULL),
-(11, 64, 'b68a260620a6bedd5d2006bb909d2c31.jpg', NULL),
-(12, 65, 'dcf53578c9e08411724f803136b72387.jpg', NULL),
-(13, 66, 'b29d7636dc4961cb5a2bcbf31a64d9bc.jpg', NULL),
-(14, 67, 'dfd690e7d460c2a56065689b69235458.jpg', NULL),
-(15, 68, '28d49f393524407c8f7a271dd78ab1fd.jpg', NULL),
-(16, 69, 'dd0f9dc55f72873b90562d82bdde8572.jpg', NULL),
-(17, 70, '9257743bd503e01f1266310357bc0daf.jpg', NULL),
-(19, 61, 'e70028bc567387bf3dc2efc7f506e0cc.jpg', NULL),
-(20, 60, '5b044bc6af0d11ded704382fd5839a30.jpg', NULL),
-(21, 8, 'a9c200f1ed0f3641af7e3e6c18686758.jpg', NULL),
-(22, 59, '2adf93c8f4b8af2aa0aa927db86497b0.jpg', NULL),
-(23, 55, '0faa57ed8a2128d1c2cd60344df36580.jpg', NULL),
-(24, 36, '7cb697f85361ed85df2ce5ca32912ab9.jpg', NULL),
-(25, 71, '9012a5667577d445c1d75a5615006dbd.jpg', NULL),
-(26, 72, '6c5770e2c7fb83a6a5f180ed33b89102.jpg', NULL),
 (27, 73, 'a08c7b3092926a92433e86ac91f7160a.jpg', NULL),
 (28, 74, '51d27a775450ef74c7ab87201879c4f4.jpg', NULL),
 (29, 75, '7be994195dd8cc88e5368ddc5339ba80.jpg', NULL),
@@ -115,7 +97,6 @@ INSERT INTO `gambar_product` (`id_gambar`, `id_product`, `gambar`, `deskripsi`) 
 (54, 100, '45352d5fac5dc8d9199b7779f87ce0fd.jpg', NULL),
 (55, 101, 'c0c5278a02f84bdecc905ce959201d0a.jpg', NULL),
 (56, 102, '1cdc702b50691180eb155df85d11a63a.jpg', NULL),
-(57, 103, '0806967f27956d8bc99579487e16750f.jpg', NULL),
 (58, 104, 'bf048fd4dbe3d312baacbb133632771f.jpg', NULL),
 (59, 105, '789416600f4e7e3f1cf778652c5d2fdd.jpg', NULL),
 (60, 106, 'c3f3bac9207bf0209bc3854356376836.jpg', NULL),
@@ -176,11 +157,7 @@ INSERT INTO `gambar_product` (`id_gambar`, `id_product`, `gambar`, `deskripsi`) 
 (115, 161, 'b5b08af904b8ffc006e64831bff13049.jpeg', NULL),
 (116, 162, '5e8f369a9b710464c0d5b9e50acc3fcc.jpg', NULL),
 (117, 163, 'ba8a14dcbc7aab817144bf711ba873e2.jpg', NULL),
-(118, 164, '32667645434360e4cf9b7e69c9cf6a0c.jpg', NULL),
-(119, 165, '18a663f4162bb983ddd31be7d1aca3a9.jpg', NULL),
-(120, 166, '5a66a5dcba791a05380646e1128d0e22.jpeg', NULL),
-(121, 167, '45581f03add7a3a6d9f56164cf2a0bf7.jpg', NULL),
-(122, 168, 'd0f9d27ff6dbc27c9571d41ee0b73aea.jpg', NULL);
+(118, 164, '32667645434360e4cf9b7e69c9cf6a0c.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -271,6 +248,13 @@ CREATE TABLE `orders` (
   `tgl_pengembalian_user` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id_order`, `ambil`, `kembali`, `id_product`, `tanggal`, `status`, `id_user`, `is_kembali`, `is_notif`, `quantity`, `dikembalikan`, `pengantaran`, `is_rusak`, `keterangan_rusak`, `ukuran`, `is_delete`, `tgl_pengembalian_user`) VALUES
+('INV230621000001', '2021-06-23', '2021-06-25', 164, '2021-06-23', 'LUNAS', 2, 0, 1, 1, NULL, 'ambil_sendiri', 0, NULL, 'l', 0, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -286,6 +270,14 @@ CREATE TABLE `pembayaran` (
   `pengirim` varchar(70) CHARACTER SET latin1 DEFAULT NULL,
   `bukti_transfer` varchar(50) CHARACTER SET latin1 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id_bayar`, `tgl_bayar`, `id_metode`, `id_order`, `jumlah`, `pengirim`, `bukti_transfer`) VALUES
+(1, '2021-06-23', 7, 'INV230621000001', 1, 'q', '4aad4546ce2aaf1afc7e4eec863ec591.jpeg'),
+(2, '2021-06-23', 7, 'INV230621000001', 1, 'q', '285aeac44975de20b8279a70b84ee4c4.jpeg');
 
 -- --------------------------------------------------------
 
@@ -316,103 +308,97 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id_product`, `nama_product`, `harga_product`, `harga_deposit`, `deskripsi`, `gender`, `id_pulau`, `id_provinsi`, `is_delete`, `stock`, `id_jenis_product`, `s`, `m`, `l`, `xl`) VALUES
-(72, 'Kostum Tari Pendet (Bali)', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Pendet terdiri dari:</p>\n', 'L', 10, 29, 1, NULL, 1, 0, 3, 2, 3),
-(73, 'Kostum Tari Merak', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Merak terdiri dari:</p>\n', 'P', 9, 23, 0, NULL, 1, 0, 3, 2, 1),
-(74, 'Kostum Tari Panji Semirang', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Panji Semirang terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 2, 3),
-(75, 'Kostum Tari Ratoeh Jaro', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Ratoeh Jaro terdiri dari:</p>\n', 'P', 8, 13, 0, NULL, 1, 0, 3, 2, 5),
-(76, 'Kostum Tari Cendrawasih', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Cendrawasih terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 2, 1),
-(77, 'Kostum Tari Pendet', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Pendet terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 2, 5),
-(78, 'Kostum Tari Gandrung', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Gandrung terdiri dari:</p>\n', 'P', 9, 28, 0, NULL, 1, 0, 3, 2, 1),
-(79, 'Kostum Tari Sekar Jagat', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Sekar Jagat terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 2, 1),
-(80, 'Kostum Tari Oleg', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Oleg terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 2, 1),
-(81, 'Kostum Tari Oleg', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Oleg terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 1, 0, 3, 2, 1),
-(82, 'Kostum Tari Lenggang Nyai', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Lenggang Nyai terdiri dari:</p>\n', 'P', 9, 25, 0, NULL, 1, 0, 3, 2, 1),
-(83, 'Kostum Tari Jatilan', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Jatilan terdiri dari:</p>\n', 'P', 9, 28, 0, NULL, 1, 0, 3, 2, 1),
-(84, 'Kostum Tari Ganongan', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Ganongan terdiri dari:</p>\n', 'L', 9, 28, 0, NULL, 1, 0, 3, 2, 1),
-(85, 'Kostum Tari Manuk Rawa', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Manuk Rawa terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 2, 1),
-(86, 'Kostum Tari Joged Bumbung', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Joged Bumbung terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 2, 1),
-(87, 'Kostum Tari Pakarena', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Pakarena terdiri dari:</p>\n', 'P', 12, 39, 0, NULL, 1, 0, 3, 2, 1),
-(88, 'Kostum Tari Legong', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Legong terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 2, 1),
-(89, 'Kostum Tari Baris', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Baris terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 1, 0, 3, 2, 1),
-(90, 'Kostum Tari Yapong', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Yapong terdiri dari:</p>\n', 'P', 9, 25, 0, NULL, 1, 0, 3, 2, 1),
-(91, 'Kostum Tari Remo', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Remo terdiri dari:</p>\n', 'P', 9, 28, 0, NULL, 1, 0, 3, 2, 1),
-(92, 'Kostum Tari Remo', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Remo terdiri dari:</p>\n', 'L', 9, 28, 1, NULL, 1, 0, 3, 2, 1),
-(93, 'Kostum Tari Teruna Jaya', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari&nbsp;Teruna Jaya terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 2, 1),
-(94, 'Kostum Tari Sekapur Sirih', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Sekapur Sirih terdiri dari:</p>\n', 'P', 8, 22, 0, NULL, 1, 0, 3, 2, 0),
-(95, 'Kostum Tari Piring', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Piring terdiri dari:</p>\n', 'P', 8, 15, 0, NULL, 1, 0, 3, 2, 0),
-(96, 'Kostum Tari Piring', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Piring terdiri dari:</p>\n', 'L', 8, 15, 0, NULL, 1, 0, 3, 2, 0),
-(97, 'Kostum Tari Rantak', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Rantak terdiri dari:</p>\n', 'L', 8, 15, 0, NULL, 1, 0, 3, 2, 0),
-(98, 'Kostum Tari Rantak', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Rantak terdiri dari:</p>\n', 'P', 8, 15, 0, NULL, 1, 0, 3, 2, 0),
-(99, 'Kostum Tari Payung', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Payung terdiri dari:</p>\n', 'P', 8, 15, 0, NULL, 1, 0, 3, 2, 0),
-(100, 'Kostum Tari Payung', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Payung terdiri dari:</p>\n', 'L', 8, 15, 0, NULL, 1, 0, 3, 2, 0),
-(101, 'Kostum Tari Kasomber', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Kasomber terdiri dari:</p>\n', 'P', 9, 28, 0, NULL, 1, 0, 3, 2, 0),
-(102, 'Kostum Tari Bedoyo', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Bedoyo terdiri dari:</p>\n', 'P', 9, 26, 0, NULL, 1, 0, 3, 2, 0),
-(103, 'Kostum Tari Bidu', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Bidu terdiri dari:</p>\n', 'P', 13, 31, 0, NULL, 1, 0, 3, 2, 0),
-(104, 'Kostum Tari Pagellu', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Pagellu terdiri dari:</p>\n', 'P', 12, 39, 0, NULL, 1, 0, 3, 2, 0),
-(105, 'Kostum Tari Tor-tor', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Tor-tor terdiri dari:</p>\n', 'P', 8, 14, 0, NULL, 1, 0, 3, 2, 0),
-(106, 'Kostum Tari Bajidor Kahot', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Bajidor Kahot terdiri dari:</p>\n', 'P', 9, 24, 0, NULL, 1, 0, 3, 2, 0),
-(107, 'Kostum Tari Margapati', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Margapati terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 2, 1),
-(108, 'Kostum Tari Puspanjali', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Puspanjali terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 2, 1),
-(109, 'Kostum Tari Kidang Kencana', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Kidang Kencana terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 2, 1),
-(110, 'Kostum Tari Barong', 400000, 400000, '<p>Sanggar kami menyediakan Kostum Tari Barong terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 1, 0, 3, 2, 0),
-(111, 'Kostum Tari Wirayuda', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Wirayuda terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 1, 0, 3, 2, 1),
-(112, 'Kostum Tari Kecak', 100000, 100000, '<p>Sanggar kami menyediakan Kostum Tari Kecak terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 1, 0, 3, 2, 5),
-(113, 'Kostum Tari Topeng Cirebon', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Topeng Cirebon terdiri dari:</p>\n', 'L', 9, 24, 0, NULL, 1, 0, 3, 2, 0),
-(114, 'Kostum Tari Gambyong', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Gambyong terdiri dari:</p>\n', 'P', 9, 26, 0, NULL, 1, 0, 3, 2, 0),
-(115, 'Kostum Tari Serimpi', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Serimpi terdiri dari:</p>\n', 'P', 9, 26, 0, NULL, 1, 0, 3, 2, 0),
-(116, 'Kostum Tari Burung Enggang', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Burung Enggang terdiri dari:</p>\n', 'P', 11, 35, 0, NULL, 1, 0, 3, 2, 0),
-(117, 'Kostum Tari Radap Rahayu', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Radap Rahayu terdiri dari:</p>\n', 'P', 11, 33, 0, NULL, 1, 0, 3, 2, 0),
-(118, 'Kostum Tari Janger', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Janger terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 1, 0, 3, 2, 3),
-(119, 'Kostum Tari Janger', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Janger terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 2, 3),
-(120, 'Kostum Tari Topeng Tua', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Topeng Tua terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 1, 0, 3, 2, 0),
-(121, 'Kostum Tari Topeng Keras', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Topeng Keras terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 1, 0, 3, 2, 0),
-(122, 'Kostum Tari Cilinaya', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Cilinaya terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 2, 1),
-(123, 'Kostum Tari Wiranata', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Wiranata terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 2, 1),
-(124, 'Kostum Tari Sajojo', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Sajojo terdiri dari:</p>\n', 'P', 14, 45, 0, NULL, 1, 0, 3, 2, 0),
-(125, 'Kostum Tari Soya-soya', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Soya-soya terdiri dari:</p>\n', 'L', 14, 44, 0, NULL, 1, 0, 3, 2, 0),
-(126, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Bali terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 2, 0, 3, 2, 2),
-(127, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Sunda terdiri dari:</p>\n', 'P', 9, 24, 0, NULL, 2, 0, 3, 2, 0),
-(128, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Sunda terdiri dari:</p>\n', 'L', 9, 24, 0, NULL, 2, 0, 3, 2, 0),
-(129, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Jawa Tengah terdiri dari:</p>\n', 'P', 9, 26, 1, NULL, 1, 0, 3, 2, 0),
-(130, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Jawa Tengah terdiri dari:</p>\n', 'P', 9, 26, 0, NULL, 2, 0, 3, 2, 0),
-(131, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Jawa Tengah terdiri dari:</p>\n', 'L', 9, 26, 0, NULL, 2, 0, 3, 2, 0),
-(132, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Madura terdiri dari:</p>\n', 'P', 9, 28, 0, NULL, 2, 0, 3, 2, 0),
-(133, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Madura terdiri dari:</p>\n', 'L', 9, 28, 0, NULL, 2, 0, 3, 2, 0),
-(134, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Lampung terdiri dari:</p>\n', 'P', 8, 22, 0, NULL, 2, 0, 3, 2, 0),
-(135, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Lampung terdiri dari:</p>\n', 'L', 8, 22, 0, NULL, 2, 0, 3, 2, 0),
-(136, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Jambi terdiri dari:</p>\n', 'P', 8, 18, 0, NULL, 2, 0, 3, 2, 0),
-(137, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Jambi terdiri dari:</p>\n', 'L', 8, 18, 0, NULL, 2, 0, 3, 2, 0),
-(138, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Bengkulu terdiri dari:</p>\n', 'P', 8, 19, 0, NULL, 2, 0, 3, 2, 0),
-(139, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Bengkulu terdiri dari:</p>\n', 'L', 8, 19, 0, NULL, 2, 0, 3, 2, 0),
-(140, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Betawi terdiri dari:</p>\n', 'P', 9, 25, 0, NULL, 2, 0, 3, 2, 0),
-(141, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Betawi terdiri dari:</p>\n', 'L', 9, 25, 0, NULL, 2, 0, 3, 2, 0),
-(142, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Riau terdiri dari:</p>\n', 'L', 8, 16, 0, NULL, 2, 0, 3, 2, 0),
-(143, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Riau terdiri dari:</p>\n', 'P', 8, 16, 0, NULL, 2, 0, 3, 2, 0),
-(144, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Minang terdiri dari:</p>\n', 'P', 8, 15, 0, NULL, 2, 0, 3, 2, 0),
-(145, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Minang terdiri dari:</p>\n', 'L', 8, 15, 0, NULL, 2, 0, 3, 2, 0),
-(146, 'Kostum Adat Mandailing', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Mandailing terdiri dari:</p>\n', 'P', 8, 14, 0, NULL, 2, 0, 3, 2, 0),
-(147, 'Kostum Adat Mandailing', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Mandailing terdiri dari:</p>\n', 'L', 8, 14, 0, NULL, 2, 0, 3, 2, 0),
-(148, 'Kostum Adat Toba', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Toba terdiri dari:</p>\n', 'P', 8, 14, 0, NULL, 2, 0, 3, 2, 0),
-(149, 'Kostum Adat Toba', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Toba terdiri dari:</p>\n', 'P', 8, 14, 0, NULL, 2, 0, 3, 2, 0),
-(150, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Aceh terdiri dari:</p>\n', 'P', 8, 13, 0, NULL, 2, 0, 3, 2, 0),
-(151, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Aceh terdiri dari:</p>\n', 'L', 8, 13, 0, NULL, 2, 0, 3, 2, 0),
-(152, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Bangka Belitung terdiri dari:</p>\n', 'P', 8, 21, 0, NULL, 2, 0, 3, 2, 0),
-(153, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Bangka Belitung terdiri dari:</p>\n', 'L', 8, 21, 0, NULL, 2, 0, 3, 2, 0),
-(154, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Maluku terdiri dari:</p>\n', 'P', 14, 43, 0, NULL, 2, 0, 3, 2, 0),
-(155, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Maluku terdiri dari:</p>\n', 'L', 14, 43, 0, NULL, 2, 0, 3, 2, 0),
-(156, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Papua Barat terdiri dari:</p>\n', 'P', 14, 45, 0, NULL, 2, 0, 3, 2, 0),
-(157, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Papua Barat terdiri dari:</p>\n', 'L', 14, 45, 0, NULL, 2, 0, 3, 2, 0),
-(158, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Bugis terdiri dari:</p>\n', 'P', 12, 39, 0, NULL, 2, 0, 3, 2, 0),
-(159, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Bugis terdiri dari:</p>\n', 'L', 12, 39, 0, NULL, 2, 0, 3, 2, 0),
-(160, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Tidung terdiri dari:</p>\n', 'L', 11, 36, 0, NULL, 2, 0, 3, 2, 0),
-(161, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Tidung terdiri dari:</p>\n', 'P', 11, 36, 0, NULL, 2, 0, 3, 2, 0),
-(162, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Bali terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 2, 0, 3, 2, 3),
-(163, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Dayak terdiri dari:</p>\n', 'P', 11, 34, 0, NULL, 2, 0, 3, 2, 0),
-(164, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Dayak terdiri dari:</p>\n', 'L', 11, 34, 0, NULL, 2, 0, 3, 2, 0),
-(165, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Sasak terdiri dari:</p>\n', 'P', 13, 30, 0, NULL, 2, 0, 3, 2, 0),
-(166, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Sasak terdiri dari:</p>\n', 'L', 13, 30, 0, NULL, 2, 0, 3, 2, 0),
-(167, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Rote terdiri dari:</p>\n', 'P', 13, 31, 0, NULL, 2, 7, 4, 2, 0),
-(168, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Rote terdiri dari:</p>\n', 'L', 13, 31, 0, NULL, 2, 0, 3, 2, 0);
+(73, 'Kostum Tari Merak', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Merak terdiri dari:</p>\n', 'P', 9, 23, 0, NULL, 1, 0, 3, 5, 1),
+(74, 'Kostum Tari Panji Semirang', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Panji Semirang terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 5, 3),
+(75, 'Kostum Tari Ratoeh Jaro', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Ratoeh Jaro terdiri dari:</p>\n', 'P', 8, 13, 0, NULL, 1, 0, 3, 5, 5),
+(76, 'Kostum Tari Cendrawasih', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Cendrawasih terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 5, 1),
+(77, 'Kostum Tari Pendet', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Pendet terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 5, 5),
+(78, 'Kostum Tari Gandrung', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Gandrung terdiri dari:</p>\n', 'P', 9, 28, 0, NULL, 1, 0, 3, 5, 1),
+(79, 'Kostum Tari Sekar Jagat', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Sekar Jagat terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 5, 1),
+(80, 'Kostum Tari Oleg', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Oleg terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 5, 1),
+(81, 'Kostum Tari Oleg', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Oleg terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 1, 0, 3, 5, 1),
+(82, 'Kostum Tari Lenggang Nyai', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Lenggang Nyai terdiri dari:</p>\n', 'P', 9, 25, 0, NULL, 1, 0, 3, 5, 1),
+(83, 'Kostum Tari Jatilan', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Jatilan terdiri dari:</p>\n', 'P', 9, 28, 0, NULL, 1, 0, 3, 5, 1),
+(84, 'Kostum Tari Ganongan', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Ganongan terdiri dari:</p>\n', 'L', 9, 28, 0, NULL, 1, 0, 3, 5, 1),
+(85, 'Kostum Tari Manuk Rawa', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Manuk Rawa terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 5, 1),
+(86, 'Kostum Tari Joged Bumbung', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Joged Bumbung terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 5, 1),
+(87, 'Kostum Tari Pakarena', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Pakarena terdiri dari:</p>\n', 'P', 12, 39, 0, NULL, 1, 0, 3, 5, 1),
+(88, 'Kostum Tari Legong', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Legong terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 5, 1),
+(89, 'Kostum Tari Baris', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Baris terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 1, 0, 3, 5, 1),
+(90, 'Kostum Tari Yapong', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Yapong terdiri dari:</p>\n', 'P', 9, 25, 0, NULL, 1, 0, 3, 5, 1),
+(91, 'Kostum Tari Remo', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Remo terdiri dari:</p>\n', 'P', 9, 28, 0, NULL, 1, 0, 3, 5, 1),
+(92, 'Kostum Tari Remo', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Remo terdiri dari:</p>\n', 'L', 9, 28, 1, NULL, 1, 0, 3, 5, 1),
+(93, 'Kostum Tari Teruna Jaya', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari&nbsp;Teruna Jaya terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 5, 1),
+(94, 'Kostum Tari Sekapur Sirih', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Sekapur Sirih terdiri dari:</p>\n', 'P', 8, 22, 0, NULL, 1, 0, 3, 5, 0),
+(95, 'Kostum Tari Piring', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Piring terdiri dari:</p>\n', 'P', 8, 15, 0, NULL, 1, 0, 3, 5, 0),
+(96, 'Kostum Tari Piring', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Piring terdiri dari:</p>\n', 'L', 8, 15, 0, NULL, 1, 0, 3, 5, 0),
+(97, 'Kostum Tari Rantak', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Rantak terdiri dari:</p>\n', 'L', 8, 15, 0, NULL, 1, 0, 3, 5, 0),
+(98, 'Kostum Tari Rantak', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Rantak terdiri dari:</p>\n', 'P', 8, 15, 0, NULL, 1, 0, 3, 5, 0),
+(99, 'Kostum Tari Payung', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Payung terdiri dari:</p>\n', 'P', 8, 15, 0, NULL, 1, 0, 3, 5, 0),
+(100, 'Kostum Tari Payung', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Payung terdiri dari:</p>\n', 'L', 8, 15, 0, NULL, 1, 0, 3, 5, 0),
+(101, 'Kostum Tari Kasomber', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Kasomber terdiri dari:</p>\n', 'P', 9, 28, 0, NULL, 1, 0, 3, 5, 0),
+(102, 'Kostum Tari Bedoyo', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Bedoyo terdiri dari:</p>\n', 'P', 9, 26, 0, NULL, 1, 0, 3, 5, 0),
+(104, 'Kostum Tari Pagellu', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Pagellu terdiri dari:</p>\n', 'P', 12, 39, 0, NULL, 1, 0, 3, 5, 0),
+(105, 'Kostum Tari Tor-tor', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Tor-tor terdiri dari:</p>\n', 'P', 8, 14, 0, NULL, 1, 0, 3, 5, 0),
+(106, 'Kostum Tari Bajidor Kahot', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Bajidor Kahot terdiri dari:</p>\n', 'P', 9, 24, 0, NULL, 1, 0, 3, 5, 0),
+(107, 'Kostum Tari Margapati', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Margapati terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 5, 1),
+(108, 'Kostum Tari Puspanjali', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Puspanjali terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 5, 1),
+(109, 'Kostum Tari Kidang Kencana', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Kidang Kencana terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 5, 1),
+(110, 'Kostum Tari Barong', 400000, 400000, '<p>Sanggar kami menyediakan Kostum Tari Barong terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 1, 0, 3, 5, 0),
+(111, 'Kostum Tari Wirayuda', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Wirayuda terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 1, 0, 3, 5, 1),
+(112, 'Kostum Tari Kecak', 100000, 100000, '<p>Sanggar kami menyediakan Kostum Tari Kecak terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 1, 0, 3, 5, 5),
+(113, 'Kostum Tari Topeng Cirebon', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Topeng Cirebon terdiri dari:</p>\n', 'L', 9, 24, 0, NULL, 1, 0, 3, 5, 0),
+(114, 'Kostum Tari Gambyong', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Gambyong terdiri dari:</p>\n', 'P', 9, 26, 0, NULL, 1, 0, 3, 5, 0),
+(115, 'Kostum Tari Serimpi', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Serimpi terdiri dari:</p>\n', 'P', 9, 26, 0, NULL, 1, 0, 3, 5, 0),
+(116, 'Kostum Tari Burung Enggang', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Burung Enggang terdiri dari:</p>\n', 'P', 11, 35, 0, NULL, 1, 0, 3, 5, 0),
+(117, 'Kostum Tari Radap Rahayu', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Radap Rahayu terdiri dari:</p>\n', 'P', 11, 33, 0, NULL, 1, 0, 3, 5, 0),
+(118, 'Kostum Tari Janger', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Janger terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 1, 0, 3, 5, 3),
+(119, 'Kostum Tari Janger', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Janger terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 5, 3),
+(120, 'Kostum Tari Topeng Tua', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Topeng Tua terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 1, 0, 3, 5, 0),
+(121, 'Kostum Tari Topeng Keras', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Topeng Keras terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 1, 0, 3, 5, 0),
+(122, 'Kostum Tari Cilinaya', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Cilinaya terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 5, 1),
+(123, 'Kostum Tari Wiranata', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Wiranata terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 1, 0, 3, 5, 1),
+(124, 'Kostum Tari Sajojo', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Sajojo terdiri dari:</p>\n', 'P', 14, 45, 0, NULL, 1, 0, 3, 5, 0),
+(125, 'Kostum Tari Soya-soya', 200000, 200000, '<p>Sanggar kami menyediakan Kostum Tari Soya-soya terdiri dari:</p>\n', 'L', 14, 44, 0, NULL, 1, 0, 3, 5, 0),
+(126, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Bali terdiri dari:</p>\n', 'L', 10, 29, 0, NULL, 2, 0, 3, 5, 2),
+(127, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Sunda terdiri dari:</p>\n', 'P', 9, 24, 0, NULL, 2, 0, 3, 5, 0),
+(128, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Sunda terdiri dari:</p>\n', 'L', 9, 24, 0, NULL, 2, 0, 3, 5, 0),
+(129, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Jawa Tengah terdiri dari:</p>\n', 'P', 9, 26, 1, NULL, 1, 0, 3, 5, 0),
+(130, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Jawa Tengah terdiri dari:</p>\n', 'P', 9, 26, 0, NULL, 2, 0, 3, 5, 0),
+(131, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Jawa Tengah terdiri dari:</p>\n', 'L', 9, 26, 0, NULL, 2, 0, 3, 5, 0),
+(132, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Madura terdiri dari:</p>\n', 'P', 9, 28, 0, NULL, 2, 0, 3, 5, 0),
+(133, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Madura terdiri dari:</p>\n', 'L', 9, 28, 0, NULL, 2, 0, 3, 5, 0),
+(134, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Lampung terdiri dari:</p>\n', 'P', 8, 22, 0, NULL, 2, 0, 3, 5, 0),
+(135, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Lampung terdiri dari:</p>\n', 'L', 8, 22, 0, NULL, 2, 0, 3, 5, 0),
+(136, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Jambi terdiri dari:</p>\n', 'P', 8, 18, 0, NULL, 2, 0, 3, 5, 0),
+(137, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Jambi terdiri dari:</p>\n', 'L', 8, 18, 0, NULL, 2, 0, 3, 5, 0),
+(138, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Bengkulu terdiri dari:</p>\n', 'P', 8, 19, 0, NULL, 2, 0, 3, 5, 0),
+(139, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Bengkulu terdiri dari:</p>\n', 'L', 8, 19, 0, NULL, 2, 0, 3, 5, 0),
+(140, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Betawi terdiri dari:</p>\n', 'P', 9, 25, 0, NULL, 2, 0, 3, 5, 0),
+(141, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Betawi terdiri dari:</p>\n', 'L', 9, 25, 0, NULL, 2, 0, 3, 5, 0),
+(142, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Riau terdiri dari:</p>\n', 'L', 8, 16, 0, NULL, 2, 0, 3, 5, 0),
+(143, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Riau terdiri dari:</p>\n', 'P', 8, 16, 0, NULL, 2, 0, 3, 5, 0),
+(144, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Minang terdiri dari:</p>\n', 'P', 8, 15, 0, NULL, 2, 0, 3, 5, 0),
+(145, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Minang terdiri dari:</p>\n', 'L', 8, 15, 0, NULL, 2, 0, 3, 5, 0),
+(146, 'Kostum Adat Mandailing', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Mandailing terdiri dari:</p>\n', 'P', 8, 14, 0, NULL, 2, 0, 3, 5, 0),
+(147, 'Kostum Adat Mandailing', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Mandailing terdiri dari:</p>\n', 'L', 8, 14, 0, NULL, 2, 0, 3, 5, 0),
+(148, 'Kostum Adat Toba', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Toba terdiri dari:</p>\n', 'P', 8, 14, 0, NULL, 2, 0, 3, 5, 0),
+(149, 'Kostum Adat Toba', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Toba terdiri dari:</p>\n', 'P', 8, 14, 0, NULL, 2, 0, 3, 5, 0),
+(150, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Aceh terdiri dari:</p>\n', 'P', 8, 13, 0, NULL, 2, 0, 3, 5, 0),
+(151, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Aceh terdiri dari:</p>\n', 'L', 8, 13, 0, NULL, 2, 0, 3, 5, 0),
+(152, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Bangka Belitung terdiri dari:</p>\n', 'P', 8, 21, 0, NULL, 2, 0, 3, 5, 0),
+(153, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Bangka Belitung terdiri dari:</p>\n', 'L', 8, 21, 0, NULL, 2, 0, 3, 5, 0),
+(154, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Maluku terdiri dari:</p>\n', 'P', 14, 43, 0, NULL, 2, 0, 3, 5, 0),
+(155, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Maluku terdiri dari:</p>\n', 'L', 14, 43, 0, NULL, 2, 0, 3, 5, 0),
+(156, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Papua Barat terdiri dari:</p>\n', 'P', 14, 45, 0, NULL, 2, 0, 3, 5, 0),
+(157, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Papua Barat terdiri dari:</p>\n', 'L', 14, 45, 0, NULL, 2, 0, 3, 5, 0),
+(158, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Bugis terdiri dari:</p>\n', 'P', 12, 39, 0, NULL, 2, 0, 3, 5, 0),
+(159, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Bugis terdiri dari:</p>\n', 'L', 12, 39, 0, NULL, 2, 0, 3, 5, 0),
+(160, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Tidung terdiri dari:</p>\n', 'L', 11, 36, 0, NULL, 2, 0, 3, 5, 0),
+(161, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Tidung terdiri dari:</p>\n', 'P', 11, 36, 0, NULL, 2, 0, 3, 5, 0),
+(162, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Bali terdiri dari:</p>\n', 'P', 10, 29, 0, NULL, 2, 0, 3, 5, 3),
+(163, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Dayak terdiri dari:</p>\n', 'P', 11, 34, 0, NULL, 2, 0, 3, 5, 0),
+(164, 'Kostum Adat', 150000, 150000, '<p>Sanggar kami menyediakan Kostum Adat Dayak terdiri dari:</p>\n', 'L', 11, 34, 0, NULL, 2, 0, 3, 4, 0);
 
 -- --------------------------------------------------------
 
@@ -527,6 +513,14 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `nama`, `username`, `password`, `level`, `photo`, `phone`, `email`, `alamat`, `is_delete`, `is_verif`) VALUES
+(1, 'Admin', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '1', NULL, 812232324456, 'dwipayananusantara1234@gmail.com', 'cileungsi', 0, 1),
+(2, 'andi', 'andi', 'c4ca4238a0b923820dcc509a6f75849b', '5', NULL, 9, 'andidev30.personal@gmail.com', 'te', NULL, 1);
+
+--
 -- Indexes for dumped tables
 --
 
@@ -534,7 +528,10 @@ CREATE TABLE `user` (
 -- Indexes for table `denda`
 --
 ALTER TABLE `denda`
-  ADD PRIMARY KEY (`id_denda`);
+  ADD PRIMARY KEY (`id_denda`),
+  ADD KEY `id_order` (`id_order`),
+  ADD KEY `id_product` (`id_product`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indexes for table `detail_product`
@@ -609,7 +606,8 @@ ALTER TABLE `pulau`
 --
 ALTER TABLE `review`
   ADD PRIMARY KEY (`id_review`),
-  ADD KEY `id_user` (`id_user`);
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_order` (`id_order`);
 
 --
 -- Indexes for table `user`
@@ -637,7 +635,7 @@ ALTER TABLE `detail_product`
 -- AUTO_INCREMENT for table `gambar_product`
 --
 ALTER TABLE `gambar_product`
-  MODIFY `id_gambar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `id_gambar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 
 --
 -- AUTO_INCREMENT for table `jenis_product`
@@ -661,13 +659,13 @@ ALTER TABLE `metode_bayar`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_bayar` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
 
 --
 -- AUTO_INCREMENT for table `provinsi`
@@ -691,42 +689,59 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `denda`
+--
+ALTER TABLE `denda`
+  ADD CONSTRAINT `denda_ibfk_1` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id_order`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `denda_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `denda_ibfk_3` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `detail_product`
 --
 ALTER TABLE `detail_product`
-  ADD CONSTRAINT `detail_product_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`);
+  ADD CONSTRAINT `detail_product_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `gambar_product`
 --
 ALTER TABLE `gambar_product`
-  ADD CONSTRAINT `gambar_product_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`);
+  ADD CONSTRAINT `gambar_product_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id_product`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`id_metode`) REFERENCES `metode_bayar` (`id_metode`),
-  ADD CONSTRAINT `pembayaran_ibfk_2` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id_order`);
+  ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`id_metode`) REFERENCES `metode_bayar` (`id_metode`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pembayaran_ibfk_2` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id_order`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`id_jenis_product`) REFERENCES `jenis_product` (`id_jenis_product`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`id_provinsi`) REFERENCES `provinsi` (`id_provinsi`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`id_pulau`) REFERENCES `pulau` (`id_pulau`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `review`
 --
 ALTER TABLE `review`
-  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
+  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id_order`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
