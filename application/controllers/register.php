@@ -36,12 +36,19 @@ class Register extends CI_Controller
             $this->session->set_userdata('nama', $params['user']);
             $this->session->set_userdata('email', $params['email']);
             $this->session->set_userdata('phone', $params['phone']); */
-            $this->send_email($params);
+            $responEmail = $this->send_email($params);
             /* echo $this->session->set_flashdata('msg', '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert"><span class="fa fa-close"></span></button> Username Berhasil Dibuat Silahkan Verifikasi Terlebih Dahulu</div>');
             if ($params['ref'] != '') {
                 redirect($params['ref']);
             } else */ 
-            redirect('register/berhasilregist');
+
+            //handle check email 
+            if($responEmail === "gagal"){
+                $this->session->set_flashdata('gagal_daftar', true);
+                redirect('register');
+            }else{
+                redirect('register/berhasilregist');
+            }
         }
     }
 
@@ -73,9 +80,10 @@ class Register extends CI_Controller
         $this->email->subject('Registrasi');
         $this->email->message($message);
         if ($this->email->send()) {
-            echo 'Email sent.';
+            return "ok";
         } else {
-            show_error($this->email->print_debugger());
+            return "gagal";
+            // show_error($this->email->print_debugger());
         }
     }
 
