@@ -60,7 +60,7 @@ class Register extends CI_Controller
             'protocol'      => 'smtp',
             'smtp_host'     => 'ssl://smtp.gmail.com',
             'smtp_user'     => 'dwipayananusantara1234@gmail.com',
-            'smtp_pass'     => 'Dwipanusa123',
+            'smtp_pass'     => 'Dwipanusa1234',
             'smtp_port'     => 465,
             'crlf'          => "\r\n",
             'newline'       => "\r\n"
