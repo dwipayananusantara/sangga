@@ -36,10 +36,14 @@ class Login extends CI_Controller
 
         if ($this->session->userdata('masuk') == true) {
             if ($ref != '') {
-                if ($this->session->userdata('akses') == '1') {
+                if ($this->session->userdata('akses') === '1') {
                     redirect('backend/dashboard');
-                } else redirect($ref);
-            } else redirect('login/berhasillogin');
+                } else {
+                    redirect($ref);
+                };
+            } else {
+                redirect('login/berhasillogin');
+            };
         } else {
             redirect('login/gagallogin');
         }

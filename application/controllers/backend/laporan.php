@@ -61,7 +61,7 @@ class Laporan extends CI_Controller
             on orders.id_order = pembayaran.id_order
 		    where tanggal >= '$tgl_dari'
             and tanggal <= '$tgl_sampai'
-            and is_kembali = $is_kembali");
+            and is_kembali = '$is_kembali'");
             }
         } else {
             if ($is_kembali == 'SEMUA') {
@@ -80,7 +80,7 @@ class Laporan extends CI_Controller
             on orders.id_order = pembayaran.id_order
 		    where tanggal >= '$tgl_dari'
             and tanggal <= '$tgl_sampai'
-            and status = $status");
+            and status = '$status'");
             } else {
                 $b['data'] = $this->db->query("select *, orders.id_order as id,
             ceiling((kembali - ambil + 1) / 3) * harga_product as harga_kostum, 
@@ -97,7 +97,7 @@ class Laporan extends CI_Controller
             on orders.id_order = pembayaran.id_order
 		    where tanggal >= '$tgl_dari'
             and tanggal <= '$tgl_sampai'
-            and status = $status
+            and status = '$status'
             and is_kembali = $is_kembali");
             }
         }

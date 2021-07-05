@@ -92,6 +92,19 @@
 			});
 		});
 	</script>
+	<!-- sweet alert -->
+	<?php if ($this->session->flashdata('gagal_daftar')): ?>
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script>
+			Swal.fire({
+				title: 'WARNING',
+				text: "Pendaftaran anda gagal silahkan hubungi admin",
+				icon: 'warning',
+				confirmButtonColor: 'blue',
+				confirmButtonText: 'Ok'
+			})
+		</script>
+	<?php endif; ?>
 </body>
 
 </html>
