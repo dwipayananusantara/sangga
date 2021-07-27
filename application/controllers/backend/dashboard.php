@@ -12,7 +12,21 @@ class Dashboard extends CI_Controller
 
 	function index()
 	{
-		$this->load->view('backend/v_dashboard');
+		$dataBajuAdat = $this->db->query("
+		SELECT COUNT(id_order) as 'jumlah', MONTH(tanggal) as 'bulan' FROM `orders` 
+		LEFT JOIN product ON orders.id_product = product.id_product WHERE product.id_jenis_product = 2
+		GROUP BY MONTH(tanggal);
+		");
+
+		$dataKostumTari = $this->db->query("
+		SELECT COUNT(id_order) as 'jumlah', MONTH(tanggal) as 'bulan' FROM `orders` 
+		LEFT JOIN product ON orders.id_product = product.id_product WHERE product.id_jenis_product = 1
+		GROUP BY MONTH(tanggal);
+		");
+		
+		$param['dataBajuAdat'] = $dataBajuAdat->result();
+		$param['dataKostumTari'] = $dataKostumTari->result();
+		$this->load->view('backend/v_dashboard', $param);
 	}
 
 	function data_dashboard()
@@ -38,6 +52,7 @@ class Dashboard extends CI_Controller
 										
 		echo json_encode($data);
 	}
+
 	function data_dashboard_product()
 	{
 		$tgl_dari = $this->input->post('tgl_dari');
@@ -55,6 +70,18 @@ class Dashboard extends CI_Controller
 		limit 5");
 		$data = $data->result_array();
 										
+		echo json_encode($data);
+	}
+
+	function get_data_chart()
+	{
+		$data = $this->db->query("
+			SELECT COUNT(id_order) as 'jumlah', MONTH(tanggal) as 'bulan' FROM `orders` 
+			LEFT JOIN product ON orders.id_product = product.id_product
+			LEFT JOIN jenis_product ON product.id_jenis_product = jenis_product.id_jenis_product
+			GROUP BY MONTH(tanggal);
+		");
+
 		echo json_encode($data);
 	}
 

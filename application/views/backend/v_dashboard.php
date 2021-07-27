@@ -18,6 +18,7 @@ if ($this->session->userdata('akses') != '1') {
 
 $jum_order = $query2->num_rows();
 $jum_konfirmasi = $query3->num_rows();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -568,15 +569,31 @@ $jum_konfirmasi = $query3->num_rows();
 		}
 	</script>
 <script src="https://adminlte.io/themes/AdminLTE/bower_components/chart.js/Chart.js"></script>
-<script>
+<?php var_dump($dataBajuAdat)?>
+<script type="text/javascript">
   $(function () {
     /* ChartJS
      * -------
      * Here we will create a few charts using ChartJS
      */
 
+
+	let dataAkhirBajuAdat = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	var dataArrBajuAdat = <?= json_encode($dataBajuAdat) ?>;
+	dataArrBajuAdat.map((i) => {
+		dataAkhirBajuAdat.splice(i.bulan, i.bulan, i.jumlah);
+	});
+
+	
+	let dataAkhirKosutmTari = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	var dataArrKosutmTari = <?= json_encode($dataKosutmTari) ?> || [];
+	dataArrKosutmTari.map((i) => {
+		dataAkhirKosutmTari.splice(i.bulan, i.bulan, i.jumlah);
+	});
+
+
     var areaChartData = {
-      labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       datasets: [
         {
           label               : 'Electronics',
@@ -586,7 +603,7 @@ $jum_konfirmasi = $query3->num_rows();
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [65, 59, 80, 81, 56, 55, 40]
+          data                : dataAkhirBajuAdat
         },
         {
           label               : 'Digital Goods',
@@ -596,7 +613,7 @@ $jum_konfirmasi = $query3->num_rows();
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [28, 48, 40, 19, 86, 27, 90]
+          data                : dataAkhirKosutmTari
         }
       ]
     }
