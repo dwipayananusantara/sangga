@@ -49,9 +49,10 @@ class Les_Tari extends CI_Controller
                         $config['source_image'] = './assets/les_tari/pas_photo' . $gbr['file_name'];
                         $config['create_thumb'] = FALSE;
                         $config['maintain_ratio'] = TRUE;
-                        $config['quality'] = '60%';
-                        $config['width'] = 756;
-                        $config['height'] = 434;
+                        // $config['quality'] = '60%';
+                        // $config['width'] = 756;
+                        // $config['height'] = 434;
+                        $config['max_size'] = 2000;
                         $config['new_image'] = './assets/les_tari/pas_photo' . $gbr['file_name'];
                         $this->load->library('image_lib', $config);
                         $this->image_lib->resize();
@@ -60,8 +61,8 @@ class Les_Tari extends CI_Controller
                         $regId = md5(uniqid($_POST['email'], true));
                         $hasil['data'] = $this->mlestari->daftar_les_tari(
                             $regId, 
-                            $_POST['nama_lengkap'], 
-                            $_POST['ttl'], 
+                            ucwords($_POST['nama_lengkap']), 
+                            $_POST['ttl'] + " " + $_POST['ttld'], 
                             $_POST['jenis_kelamin'], 
                             $_POST['alamat'], 
                             $_POST['kategori'], 
@@ -81,8 +82,8 @@ class Les_Tari extends CI_Controller
                     $regId = md5(uniqid($_POST['email'], true));
                     $hasil['data'] = $this->mlestari->daftar_les_tari(
                         $regId, 
-                        $_POST['nama_lengkap'], 
-                        $_POST['ttl'], 
+                        ucwords($_POST['nama_lengkap']), 
+                        $_POST['ttl'] + " " + $_POST['ttld'], 
                         $_POST['jenis_kelamin'], 
                         $_POST['alamat'], 
                         $_POST['kategori'], 
@@ -173,8 +174,8 @@ class Les_Tari extends CI_Controller
             'mailtype'      => 'html',
             'charset'       => 'utf-8',
             'protocol'      => 'smtp',
-            'smtp_host'     => 'ssl://smtp.gmail.com',
-            'smtp_user'     => 'dwipayananusantara1234@gmail.com',
+            'smtp_host'     => 'ssl://mail.dwipanusa.com',
+            'smtp_user'     => 'cs@dwipanusa.com',
             'smtp_pass'     => 'Dwipanusa1234',
             'smtp_port'     => 465,
             'crlf'          => "\r\n",

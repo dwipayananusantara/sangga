@@ -12,21 +12,7 @@ class Dashboard extends CI_Controller
 
 	function index()
 	{
-		$dataBajuAdat = $this->db->query("
-		SELECT COUNT(id_order) as 'jumlah', MONTH(tanggal) as 'bulan' FROM `orders` 
-		LEFT JOIN product ON orders.id_product = product.id_product WHERE product.id_jenis_product = 2
-		GROUP BY MONTH(tanggal);
-		");
-
-		$dataKostumTari = $this->db->query("
-		SELECT COUNT(id_order) as 'jumlah', MONTH(tanggal) as 'bulan' FROM `orders` 
-		LEFT JOIN product ON orders.id_product = product.id_product WHERE product.id_jenis_product = 1
-		GROUP BY MONTH(tanggal);
-		");
-		
-		$param['dataBajuAdat'] = $dataBajuAdat->result();
-		$param['dataKostumTari'] = $dataKostumTari->result();
-		$this->load->view('backend/v_dashboard', $param);
+		$this->load->view('backend/v_dashboard');
 	}
 
 	function data_dashboard()

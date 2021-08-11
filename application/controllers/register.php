@@ -58,8 +58,8 @@ class Register extends CI_Controller
             'mailtype'      => 'html',
             'charset'       => 'utf-8',
             'protocol'      => 'smtp',
-            'smtp_host'     => 'ssl://smtp.gmail.com',
-            'smtp_user'     => 'dwipayananusantara1234@gmail.com',
+            'smtp_host'     => 'ssl://mail.dwipanusa.com',
+            'smtp_user'     => 'cs@dwipanusa.com',
             'smtp_pass'     => 'Dwipanusa1234',
             'smtp_port'     => 465,
             'crlf'          => "\r\n",
@@ -83,7 +83,7 @@ class Register extends CI_Controller
             return "ok";
         } else {
             return "gagal";
-            // show_error($this->email->print_debugger());
+            show_error($this->email->print_debugger());
         }
     }
 
