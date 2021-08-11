@@ -9,6 +9,9 @@
     <?php include('head.php'); ?>
     <link href="<?php echo base_url() . 'front/css/custom.css' ?>" rel="stylesheet">
     <title>Sanggar - Pendaftaran Les Tari</title>
+    <style>
+    .required:after { content:" *"; }
+</style>
 </head>
 
 <body>
@@ -83,26 +86,33 @@
         <div class="card-body">
             <form action="<?php echo base_url() ?>backend/les_tari/simpan" method="post" enctype="multipart/form-data" >
                 <div class="form-group">
-                    <label for="nama_lengkap">Nama Lengkap</label>
-                    <input type="input" name="nama_lengkap" class="form-control" id="nama_lengkap" placeholder="cth. Dwipayana Nusantara" required>
+                    <label for="nama_lengkap" class="required">Nama Lengkap</label>
+                    <input type="text" name="nama_lengkap" class="form-control" id="nama_lengkap" placeholder="cth. Dwipayana Nusantara" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))' autocapitalize="on">
                 </div>
                 <div class="form-group">
-                    <label for="ttl">Tempat Tanggal Lahir</label>
-                    <input type="input" name="ttl" class="form-control" id="ttl" placeholder="cth. Tasikmalaya, 30 Agustus 2001" required>
+                    <label for="ttl" class="required">Tempat Tanggal Lahir</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" name="ttl" class="form-control" id="ttl" placeholder="cth. Tasikmalaya" required  onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="date" name="ttld" id="ttld" class="form-control" required>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="jenis_kelamin">Jenis Kelamin</label>
+                    <label for="jenis_kelamin" class="required">Jenis Kelamin</label>
                     <select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
                     <option value="Laki-laki">Laki - Laki</option>
                     <option value="Perempuan">Perempuan</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="alamat">Alamat</label>
+                    <label for="alamat" class="required">Alamat</label>
                     <textarea class="form-control" id="alamat" rows="3" name="alamat"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="kategori">Kategori</label>
+                    <label for="kategori" class="required">Kategori</label>
                     <select class="form-control" id="kategori" name="kategori">
                     <option value="A">Kelas A (13 - 17 Tahun)</option>
                     <option value="B">Kelas B (8 - 12 Tahun)</option>
@@ -111,16 +121,17 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="no_telp">No. Telpon</label>
-                    <input type="input" name="no_telp" class="form-control" id="no_telp" placeholder="cth. 0812242046576" required>
+                    <label for="no_telp" class="required">No. Telpon</label>
+                    <input type="number" name="no_telp" class="form-control" id="no_telp" placeholder="cth. 0812242046576" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email" class="required">Email</label>
                     <input type="email" name="email" class="form-control" id="email" placeholder="cth. dwipayananusantara@gmail.com" required>
                 </div>
                 <div class="form-group">
-                    <label for="photo">Pas Foto</label>
+                    <label for="photo" class="required">Pas Foto</label>
                     <input type="file" class="form-control-file" id="photo" name="photo">
+                    <span>Max Upload Size 2 Mb</span>
                 </div>
 
                 <div class="form-group">

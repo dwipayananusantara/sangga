@@ -25,8 +25,8 @@ class Notif extends CI_Controller
             'mailtype'      => 'html',
             'charset'       => 'utf-8',
             'protocol'      => 'smtp',
-            'smtp_host'     => 'smtp.gmail.com',
-            'smtp_user'     => 'dwipayananusantara1234@gmail.com',
+            'smtp_host'     => 'ssl://mail.dwipanusa.com',
+            'smtp_user'     => 'cs@dwipanusa.com',
             'smtp_pass'     => 'Dwipanusa1234',
             'smtp_port'     => 465,
             'crlf'          => "\r\n",
@@ -37,7 +37,7 @@ class Notif extends CI_Controller
         $this->load->library('email', $config);
 
         // Email dan nama pengirim
-        $this->email->from('dwipayananusantara1234@gmail.com', 'test Notif');
+        $this->email->from('dwipayananusantara1234@gmail.com', 'Notif');
 
         // Email penerima
         $this->email->to(strtolower($params['email'])); // Ganti dengan email tujuan
