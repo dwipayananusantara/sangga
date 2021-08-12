@@ -33,7 +33,7 @@
 			<form action="<?php echo base_url() . 'register/regist' ?>" method="post">
 				<div class="form-group has-feedback">
 				<input type="hidden" name="ref" class="form-control" value="<?php echo $ref ?>"/>
-					<input type="text" name="name" class="form-control" placeholder="Nama" required>
+					<input type="text" name="name" class="form-control" placeholder="Nama" required onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))'>
 					<span class="glyphicon glyphicon-user form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
@@ -41,7 +41,7 @@
 					<span class="glyphicon glyphicon-user form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<input type="text" name="email" class="form-control" placeholder="Email" required>
+					<input type="email" name="email" class="form-control" placeholder="Email" required>
 					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
