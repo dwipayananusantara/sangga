@@ -43,6 +43,8 @@ class Laporan extends CI_Controller
             on user.id_user = orders.id_user
             left join pembayaran
             on orders.id_order = pembayaran.id_order
+            LEFT JOIN denda 
+            ON denda.id_order = orders.id_order
 		    where tanggal >= '$tgl_dari'
             and tanggal <= '$tgl_sampai'");
             } else {
@@ -58,6 +60,7 @@ class Laporan extends CI_Controller
             left join user
             on user.id_user = orders.id_user
             left join pembayaran
+            ON denda.id_order = orders.id_order
             on orders.id_order = pembayaran.id_order
 		    where tanggal >= '$tgl_dari'
             and tanggal <= '$tgl_sampai'
@@ -77,6 +80,7 @@ class Laporan extends CI_Controller
             left join user
             on user.id_user = orders.id_user
             left join pembayaran
+            ON denda.id_order = orders.id_order
             on orders.id_order = pembayaran.id_order
 		    where tanggal >= '$tgl_dari'
             and tanggal <= '$tgl_sampai'
@@ -94,6 +98,7 @@ class Laporan extends CI_Controller
             left join user
             on user.id_user = orders.id_user
             left join pembayaran
+            ON denda.id_order = orders.id_order
             on orders.id_order = pembayaran.id_order
 		    where tanggal >= '$tgl_dari'
             and tanggal <= '$tgl_sampai'

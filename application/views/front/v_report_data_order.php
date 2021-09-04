@@ -42,6 +42,7 @@
                 <th style="text-align:center">Ambil</th>
                 <th style="text-align:center">Kembali</th>
                 <th style="text-align:center">Total Bayar</th>
+                <th style="text-align:center">Denda</th>
                 <th style="text-align:center">Status</th>
                 <th style="text-align:center">Dikembalikan</th>
                 <th style="text-align:center">Tanggal Pengembalian</th>
@@ -59,6 +60,7 @@
                     $ambil = $i['ambil'];
                     $kembali = $i['kembali'];
                     $harga_total = $i['harga_total'];
+                    $denda = $i['jumlah_denda'];
                     $status = $i['status'];
                     $is_kembali = ($i['is_kembali'] != 0)?'Sudah Dikembalikan':'Belum Dikembalikan';
                     $tgl_pengembalian = $i['dikembalikan'];
@@ -73,6 +75,7 @@
                         <td style="text-align:center;"><?php echo $ambil; ?></td>
                         <td style="text-align:center;"><?php echo $kembali; ?></td>
                         <td style="text-align:center;"><?php echo 'Rp. ' . number_format($harga_total); ?></td>
+                        <td style="text-align:center;"><?php echo 'Rp. ' . number_format($denda); ?></td>
                         <td style="text-align:center;"><?php echo $status; ?></td>
                         <td style="text-align:center;"><?php echo $is_kembali; ?></td>
                         <td style="text-align:center;"><?php echo $tgl_pengembalian; ?></td>

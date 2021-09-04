@@ -205,6 +205,7 @@ $jum_konfirmasi = $query3->num_rows();
 												<th style="text-align:center;">Kembali</th>
 												<th style="text-align:center;">Tanggal Pengembalian User</th>
 												<th style="text-align:center;">Total Bayar</th>
+												<th style="text-align:center;">Denda</th>
 												<th style="text-align:center;width:100px;">Aksi</th>
 											</tr>
 										</thead>
@@ -224,8 +225,8 @@ $jum_konfirmasi = $query3->num_rows();
 												$is_rusak = $a['is_rusak'];
 												$bukti_transfer = $a['bukti_transfer'];
 												$tgl_pengembalian_user = $a['tgl_pengembalian_user'];
-												$is_notif=$a['is_notif']
-
+												$is_notif=$a['is_notif'];
+												$denda=$a['jumlah_denda'];
 											?>
 												<tr>
 													<td style="text-align:center;"><?php echo $id; ?></td>
@@ -235,6 +236,7 @@ $jum_konfirmasi = $query3->num_rows();
 													<td style="text-align:center;"><?php echo $kembali; ?></td>
 													<td style="text-align:center;"><?php echo $a['tgl_pengembalian_user']; ?></td>
 													<td style="text-align:center;"><?php echo 'Rp ' . number_format($harga_total); ?></td>
+													<td style="text-align:center;"><?php echo 'Rp ' . number_format($denda); ?></td>
 													<td>
 														<?php
 														if ($status == 'LUNAS') : ?>
@@ -398,6 +400,7 @@ $jum_konfirmasi = $query3->num_rows();
 					<form class="form-horizontal" method="post" action="<?php echo base_url() . 'backend/orders/barang_kembali' ?>" enctype="multipart/form-data">
 						<div class="modal-body">
 							<input name="kode" type="hidden" value="<?php echo $id; ?>">
+							<input name="tgl" type="hidden" value="<?php echo $tgl; ?>">
 
 							<div class="form-group">
 								<label class="control-label col-xs-3">Tanggal Pengembalian</label>

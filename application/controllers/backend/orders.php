@@ -30,9 +30,18 @@ class Orders extends CI_Controller
     }
     function barang_kembali()
     {
-        $id = $this->input->post('kode');
+        $kode = $this->input->post('kode');
+        $start = new DateTime($this->input->post('tgl'));
+        $end = new DateTime($this->input->post('dikembalikan'));
+        $interval = $start->diff($end)->d;
+
+        if($interval > 3){
+            $denda = 50000 * ($interval - 3);
+            $this->db->query(" INSERT INTO `denda` (id_denda, id_order, jumlah_denda) VALUES (null, '$kode', '$denda'); ");
+        }
+        
         $dikembalikan = $this->input->post('dikembalikan');
-        $this->morders->barang_kembali($id,$dikembalikan);
+        $this->morders->barang_kembali($kode,$dikembalikan);
         echo $this->session->set_flashdata('msg', 'success');
         redirect('backend/orders');
     }
