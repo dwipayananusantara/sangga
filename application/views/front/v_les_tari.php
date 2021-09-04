@@ -130,7 +130,7 @@
                 </div>
                 <div class="form-group">
                     <label for="photo" class="required">Pas Foto</label>
-                    <input type="file" class="form-control-file" id="photo" name="photo">
+                    <input type="file" class="form-control-file" id="photo" name="photo" accept="image/*">
                     <span>Max Upload Size 2 Mb</span>
                 </div>
 

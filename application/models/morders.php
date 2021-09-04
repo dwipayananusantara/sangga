@@ -57,6 +57,8 @@ class Morders extends CI_Model
         on user.id_user = orders.id_user
         left join pembayaran
         on orders.id_order = pembayaran.id_order
+        LEFT JOIN denda 
+        ON denda.id_order = orders.id_order
         where orders.is_delete = 0
         order by tanggal desc");
         return $hasil;

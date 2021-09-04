@@ -144,7 +144,7 @@ error_reporting(0);
                                         </div>
                                         <div class="form-group">
                                             <label>Quantity</label>
-                                            <input type="text" class="form-control" name="quantity" required>
+                                            <input type="number" class="form-control" name="quantity" id='quantity' required>
                                         </div>
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio" name="pengantaran" id="exampleRadios1" value="ambil_sendiri" checked>
@@ -210,6 +210,8 @@ error_reporting(0);
     <?php include('forgotpassword.php'); ?>
     <!--/Forgot-password-Form -->
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
         $(document).ready(function() {
             $('.datepicker').datepicker({
@@ -245,10 +247,47 @@ error_reporting(0);
             });
 
             $('#cek_harga').click(function() {
-                if (new Date($('#ambil').val()) > new Date($('#kembali').val())) {
-                    alert('Tanggal Ambil Tidak Boleh Kurang Dari Kembali');
+                var ambil = new Date($('#ambil').val())
+                var kembali = new Date($('#kembali').val())
+                
+                // if(!$('#ambil').val() || !$('#kembali').val()) {
+                //     Swal.fire({
+                //         title: 'WARNING',
+                //         text: "Tanggal tidak boleh kosong",
+                //         icon: 'warning',
+                //         confirmButtonColor: 'blue',
+                //         confirmButtonText: 'Ok'
+                //     })
+                // }
+
+                if (ambil > kembali) {
+                    Swal.fire({
+                        title: 'WARNING',
+                        text: "Tanggal Ambil Tidak Boleh Kurang Dari Kembali",
+                        icon: 'warning',
+                        confirmButtonColor: 'blue',
+                        confirmButtonText: 'Ok'
+                    })
+                    alert('');
                     return true;
                 }
+
+                var ukuran = $('#ukuran').val()
+                var quantity = $('#quantity').val()
+
+                createCookie("ukuran", ukuran, "10")
+
+                if( quantity > <?= $result[$_COOKIE['ukuran']] ?> ){
+                    Swal.fire({
+                        title: 'WARNING',
+                        text: "Pemesanan anda melebihi stock kami",
+                        icon: 'warning',
+                        confirmButtonColor: 'blue',
+                        confirmButtonText: 'Ok'
+                    })
+                    return true;
+                }
+
                 $.ajax({
                     type: "POST",
                     url: "<?php echo base_url() . 'backend/orders/cek_harga' ?>",
@@ -262,17 +301,26 @@ error_reporting(0);
                             $('#submit').prop('disabled', true);
                         }
                     }
-
                 });
+                
             });
-            /* $("#ukuran").focusout(function(e) {
-                if (<?php $ukuran =  "$('#ukuran').val()";
-                    echo $result[$ukuran]; ?> < $("#ukuran").val()) {
-                    alert('Jumlah quantitiy Melebihi Stock Yang ada');
-                    $(this).val(0);
+
+            function createCookie(name, value, days) {
+                var expires;
+                
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toGMTString();
                 }
-            }); */
-        });
+                else {
+                    expires = "";
+                }
+                
+                document.cookie = escape(name) + "=" + 
+                    escape(value) + expires + "; path=/";
+                }
+            });
     </script>
 
 </body>

@@ -207,7 +207,7 @@ $jum_konfirmasi = $query3->num_rows();
 									<table id="example1" class="table table-striped" style="font-size:12px;">
 										<thead>
 											<tr>
-												<th style="text-align:center;">Foto</th>
+												<th style="text-align:center;" class="notexport">Foto</th>
 												<th style="text-align:center;">No Registrasi</th>
 												<th style="text-align:center;">Nama</th>
 												<th style="text-align:center;">Ttl</th>
@@ -217,7 +217,7 @@ $jum_konfirmasi = $query3->num_rows();
 												<th style="text-align:center;">Telepon</th>
 												<th style="text-align:center;">E-mail</th>
 												<th style="text-align:center;">Status</th>
-												<th style="text-align:center;width:100px;">Aksi</th>
+												<th style="text-align:center;width:100px;" class="notexport">Aksi</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -362,6 +362,18 @@ $jum_konfirmasi = $query3->num_rows();
 	<?php
 		$this->load->view('backend/v_loader_js');
 	?>
+	
+	<script>
+		$(function() {
+			$("#example1").DataTable({
+				dom: 'Bfrtip',
+				buttons: ['excel', 'pdfHtml5',],
+				exportOptions: {
+					columns: ':not(.notexport)'
+				}
+			});
+		});
+	</script>
 
 	<?php if ($this->session->flashdata('msg') == 'info') : ?>
 		<script type="text/javascript">
