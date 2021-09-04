@@ -250,15 +250,15 @@ error_reporting(0);
                 var ambil = new Date($('#ambil').val())
                 var kembali = new Date($('#kembali').val())
                 
-                if(!$('#ambil').val() || !$('#kembali').val()) {
-                    Swal.fire({
-                        title: 'WARNING',
-                        text: "Tanggal tidak boleh kosong",
-                        icon: 'warning',
-                        confirmButtonColor: 'blue',
-                        confirmButtonText: 'Ok'
-                    })
-                }
+                // if(!$('#ambil').val() || !$('#kembali').val()) {
+                //     Swal.fire({
+                //         title: 'WARNING',
+                //         text: "Tanggal tidak boleh kosong",
+                //         icon: 'warning',
+                //         confirmButtonColor: 'blue',
+                //         confirmButtonText: 'Ok'
+                //     })
+                // }
 
                 if (ambil > kembali) {
                     Swal.fire({

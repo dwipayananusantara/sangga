@@ -362,6 +362,22 @@ $jum_konfirmasi = $query3->num_rows();
 	<?php
 		$this->load->view('backend/v_loader_js');
 	?>
+	
+	<script>
+		$(function() {
+			$("#example1").DataTable({
+				"paging": true,
+				dom: 'Bfrtip',
+				buttons: ['excel', {
+					extend: 'pdfHtml5',
+					customize: function(doc) {
+						doc.content[1].table.widths =
+							Array(doc.content[1].table.body[0].length + 1).join('*').split('');
+					}
+				}],
+			});
+		});
+	</script>
 
 	<?php if ($this->session->flashdata('msg') == 'info') : ?>
 		<script type="text/javascript">

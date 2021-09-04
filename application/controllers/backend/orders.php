@@ -87,6 +87,7 @@ class Orders extends CI_Controller
                     echo $this->session->set_flashdata('sukses_pembayaran', true);
                     redirect('');
                 } else {
+                    // var_dump($this->upload->display_errors());die;
                     echo $this->session->set_flashdata('msg', 'warning');
                     redirect('');
                 }
