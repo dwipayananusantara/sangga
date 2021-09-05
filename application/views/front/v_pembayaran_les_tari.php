@@ -65,7 +65,7 @@
                 </div>
                 <div class="form-group">
                     <label for="bukti_pembayaran">Bukti pembayaran</label>
-                    <input type="file" class="form-control-file" id="bukti_pembayaran" name="bukti_pembayaran" required oninvalid="this.setCustomValidity('Silahkan masukan foto struk bukti pembayaran')">
+                    <input type="file" class="form-control-file" accept="image/*" id="bukti_pembayaran" name="bukti_pembayaran" required oninvalid="this.setCustomValidity('Silahkan masukan foto struk bukti pembayaran')">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-secondary btn-sm">Kirim</button>
