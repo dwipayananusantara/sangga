@@ -271,7 +271,7 @@ error_reporting(0);
                     return true;
                 }
 
-                function createCookie(name, value, days) {
+                async function createCookie(name, value, days) {
                     var expires;
                     
                     if (days) {
@@ -290,33 +290,35 @@ error_reporting(0);
                 var ukuran = $('#ukuran').val()
                 var quantity = $('#quantity').val()
 
-                createCookie("ukuran", ukuran, "10")
+                    createCookie("ukuran", ukuran, "10").then(() => {
 
-                if( quantity > (<?= $result[$_COOKIE['ukuran']] ?> || 0) ){
-                    Swal.fire({
-                        title: 'WARNING',
-                        text: "Pemesanan anda melebihi stock kami",
-                        icon: 'warning',
-                        confirmButtonColor: 'blue',
-                        confirmButtonText: 'Ok'
-                    })
-                    return true;
-                }
-
-                $.ajax({
-                    type: "POST",
-                    url: "<?php echo base_url() . 'backend/orders/cek_harga' ?>",
-                    dataType: "json",
-                    data: $('#data').serialize(),
-                    success: function(data) {
-                        $('#total_harga').val(data.fmt_total_harga);
-                        if (data.total_harga > 0) {
-                            $('#submit').prop('disabled', false);
-                        } else {
-                            $('#submit').prop('disabled', true);
-                        }
+                        if( quantity > (<?= $result[$_COOKIE['ukuran']] ?> || 0) ){
+                        Swal.fire({
+                            title: 'WARNING',
+                            text: "Pemesanan anda melebihi stock kami",
+                            icon: 'warning',
+                            confirmButtonColor: 'blue',
+                            confirmButtonText: 'Ok'
+                        })
+                        return true;
                     }
-                });
+
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo base_url() . 'backend/orders/cek_harga' ?>",
+                        dataType: "json",
+                        data: $('#data').serialize(),
+                        success: function(data) {
+                            $('#total_harga').val(data.fmt_total_harga);
+                            if (data.total_harga > 0) {
+                                $('#submit').prop('disabled', false);
+                            } else {
+                                $('#submit').prop('disabled', true);
+                            }
+                        }
+                    });
+                })
+
                 
             });
 
