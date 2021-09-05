@@ -30,6 +30,7 @@ class Orders extends CI_Controller
     }
     function barang_kembali()
     {
+        $harga_total = $this->input->post('harga_total');
         $kode = $this->input->post('kode');
         $start = new DateTime($this->input->post('tgl'));
         $end = new DateTime($this->input->post('dikembalikan'));
@@ -37,6 +38,9 @@ class Orders extends CI_Controller
 
         if($interval > 3){
             $denda = 50000 * ($interval - 3);
+            if($denda > $harga_total / 2){
+                $denda = $harga_total / 2;
+            }
             $this->db->query(" INSERT INTO `denda` (id_denda, id_order, jumlah_denda) VALUES (null, '$kode', '$denda'); ");
         }
         
