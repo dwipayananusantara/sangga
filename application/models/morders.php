@@ -118,9 +118,9 @@ class Morders extends CI_Model
         $hasil = $this->db->query("INSERT INTO orders(id_order,ambil,kembali,id_product,quantity,tanggal,id_user,status,pengantaran,ukuran)
         VALUES('$no_order','$ambil','$kembali','$id_product','$quantity',CURDATE(),'$id_user','BELUM LUNAS','$pengantaran', '$ukuran')");
 
-        // $this->db->query("update product
-        //                     set $ukuran = $ukuran - $quantity
-        //                     where id_product = $id_product");
+        $this->db->query("update stock
+                            set $ukuran = $ukuran - $quantity
+                            where id_product = $id_product");
         return $hasil;
     }
 
