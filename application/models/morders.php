@@ -39,7 +39,7 @@ class Morders extends CI_Model
         on orders.id_order = pembayaran.id_order
         where user.id_user = '$iduser'
         and orders.is_delete = 0
-        order by tanggal desc");
+        order by orders.tanggal desc");
         return $hasil;
     }
     function get_orders_v2()
@@ -60,7 +60,7 @@ class Morders extends CI_Model
         LEFT JOIN denda 
         ON denda.id_order = orders.id_order
         where orders.is_delete = 0
-        order by tanggal desc");
+        order by orders.tanggal desc");
         return $hasil;
     }
     function bayar_selesai($id)
