@@ -27,7 +27,7 @@ class Mproduct extends CI_Model
 		(select nama_provinsi from provinsi 
 		where provinsi.id_provinsi = product.id_provinsi ) as nama_provinsi,
 		if(gender='L','Laki - Laki','Perempuan') as nama_gender
-		from product where id_product='$product' and is_delete = 0 order by id_provinsi, gender, id_product");
+		from product left join stock on product.id_product = stock.id_product where product.id_product='$product' and is_delete = 0 order by product.id_provinsi, product.gender, product.id_product");
 		return $hasil;
 	}
 
@@ -118,7 +118,7 @@ class Mproduct extends CI_Model
 		(select nama_provinsi from provinsi 
 		where provinsi.id_provinsi = product.id_provinsi ) as nama_provinsi,
 		if(gender='L','Laki - Laki','Perempuan') as nama_gender
-		from product where is_delete = 0 order by id_product DESC");
+		from product left join stock on stock.id_product = product.id_product where is_delete = 0 order by product.id_product DESC");
 		else :
 			$hasil = $this->db->query("select *, 
 		(select gambar from gambar_product
@@ -127,7 +127,7 @@ class Mproduct extends CI_Model
 		(select nama_provinsi from provinsi 
 		where provinsi.id_provinsi = product.id_provinsi ) as nama_provinsi,
 		if(gender='L','Laki - Laki','Perempuan') as nama_gender
-		from product where is_delete = 0 order by id_product DESC limit $limit");
+		from product left join stock on stock.id_product = product.id_product where is_delete = 0 order by product.id_product DESC limit $limit");
 		endif;
 		return $hasil;
 	}

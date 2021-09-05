@@ -214,7 +214,7 @@ class Orders extends CI_Controller
     function kurangi_stock()
     {
         //kurangi stock
-        $queryKurangiStock = "UPDATE product SET $ukuran=((SELECT $ukuran from product WHERE id_product=$id_product)-$quantity) WHERE id_product=$id_product";
+        $queryKurangiStock = "UPDATE stock SET $ukuran=((SELECT $ukuran from stock WHERE id_product=$id_product)-$quantity) WHERE id_product=$id_product";
         $this->db->query($queryKurangiStock);
     }
 }

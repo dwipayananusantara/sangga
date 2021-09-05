@@ -66,10 +66,6 @@ class Product extends CI_Controller
 					'harga_product' => $harga_product,
 					'harga_deposit' => $harga_product,
 					'id_jenis_product' => $id_jenis_product,
-					's' => $s,
-					'm' => $m,
-					'l' => $l,
-					'xl' => $xl,
 					'gender' => $gender,
 					'id_pulau' => $pulau,
 					'id_provinsi' => $provinsi
@@ -77,6 +73,16 @@ class Product extends CI_Controller
 
 				$this->db->insert('product', $data);
 				$id = $this->db->insert_id();
+
+				// stock 
+				$data = array(
+					's' => $s,
+					'm' => $m,
+					'l' => $l,
+					'xl' => $xl,
+					'id_product' => $id
+				);
+				$this->db->insert('stock', $data);
 
 				$data = array(
 					'gambar' => $gambar,
@@ -153,13 +159,16 @@ class Product extends CI_Controller
 				harga_product='$harga_product',
 				harga_deposit='$harga_product',
 				id_jenis_product='$id_jenis_product',
+				gender='$gender', 
+				id_pulau='$pulau',
+				id_provinsi='$provinsi'
+				WHERE id_product='$kode'");
+
+				$this->db->query("UPDATE stock SET 
 				s='$s', 
 				m='$m', 
 				l='$l', 
 				xl='$xl', 
-				gender='$gender', 
-				id_pulau='$pulau',
-				id_provinsi='$provinsi'
 				WHERE id_product='$kode'");
 
 				$this->db->where('id_product', $kode);
@@ -210,18 +219,23 @@ class Product extends CI_Controller
 			$nama_detail_product = $this->input->post('nama_detail_product');
 
 			$this->db->query("UPDATE product SET 
-				nama_product='$nama_product',
-				deskripsi='$deskripsi',
-				harga_product='$harga_product',
-				harga_deposit='$harga_product',
-				s='$s', 
-				m='$m', 
-				l='$l', 
-				xl='$xl', 
-				gender='$gender',
-				id_pulau='$pulau',
-				id_provinsi='$provinsi'
-				WHERE id_product='$kode'");
+			nama_product='$nama_product',
+			deskripsi='$deskripsi',
+			harga_product='$harga_product',
+			harga_deposit='$harga_product',
+			id_jenis_product='$id_jenis_product',
+			gender='$gender', 
+			id_pulau='$pulau',
+			id_provinsi='$provinsi'
+			WHERE id_product='$kode'");
+
+			$this->db->query("UPDATE stock SET 	
+			s='$s', 
+			m='$m', 
+			l='$l', 
+			xl='$xl'
+			WHERE id_product='$kode'");
+
 			$this->db->where('id_product', $kode);
 			$this->db->delete('detail_product');
 			$i = 0;
