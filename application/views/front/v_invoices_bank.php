@@ -116,9 +116,9 @@ include('library.php');
 						<td><?php echo format_rupiah($result['harga_deposit']); ?></td>
 					</tr>
 					<tr>
-						<td>Quantity</td>
+						<td>Jumlah Kostum</td>
 						<td>:</td>
-						<td><?php echo format_rupiah($result['quantity']); ?></td>
+						<td><?php echo $result['quantity']; ?></td>
 					</tr>
 					<tr>
 						<td>Total Biaya</td>
