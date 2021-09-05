@@ -268,7 +268,6 @@ error_reporting(0);
                         confirmButtonColor: 'blue',
                         confirmButtonText: 'Ok'
                     })
-                    alert('');
                     return true;
                 }
 
