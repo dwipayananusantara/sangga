@@ -51,8 +51,8 @@ class Mpaket extends CI_Model{
 		select *, 
 		ceiling((kembali - ambil + 1) / 3) * harga_product as harga_kostum, 
 		ceiling((kembali - ambil + 1) / 3) * harga_deposit as harga_deposit,
-		(ceiling((kembali - ambil + 1) / 3) * harga_product) +
-		(ceiling((kembali - ambil + 1) / 3) * harga_deposit) as harga_total,
+		((ceiling((kembali - ambil + 1) / 3) * harga_product) +
+        (ceiling((kembali - ambil + 1) / 3) * harga_deposit)) * orders.quantity as harga_total,
 		ceiling(datediff(kembali, ambil) + 1) as durasi
 		from orders
 		left join product
