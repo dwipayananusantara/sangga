@@ -292,7 +292,7 @@ error_reporting(0);
 
                 createCookie("ukuran", ukuran, "10")
 
-                if( quantity > <?= $result[$_COOKIE['ukuran']] ?> ){
+                if( quantity > (<?= $result[$_COOKIE['ukuran']] ?> || 0) ){
                     Swal.fire({
                         title: 'WARNING',
                         text: "Pemesanan anda melebihi stock kami",
