@@ -60,7 +60,7 @@ class Les_Tari extends CI_Controller
                         $photo = $gbr['file_name'];
                         // reg
                         $queryNo = $this->db->query("SELECT max(id_less_tari) as idTerbesar from les_tari")->row();
-                        $queryNoAngka = $queryNo->idTerbesar;
+                        $queryNoAngka = $queryNo->idTerbesar + 1;
                         $regId = "DWPNS" . $queryNoAngka;
                         $hasil['data'] = $this->mlestari->daftar_les_tari(
                             $regId, 
@@ -84,7 +84,7 @@ class Les_Tari extends CI_Controller
                 }else {
                     // reg
                     $queryNo = $this->db->query("SELECT max(id_less_tari) as idTerbesar from les_tari")->row();
-                    $queryNoAngka = $queryNo->idTerbesar;
+                    $queryNoAngka = $queryNo->idTerbesar + 1;
                     $regId = "DWPNS" . $queryNoAngka;
                     $hasil['data'] = $this->mlestari->daftar_les_tari(
                         $regId, 
