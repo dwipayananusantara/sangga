@@ -163,7 +163,6 @@ class Orders extends CI_Controller
 
         echo json_encode($data);
     }
-
     function hapus_order()
     {
         $kode = $this->input->post('kode');
@@ -171,16 +170,19 @@ class Orders extends CI_Controller
         echo $this->session->set_flashdata('msg', 'success-hapus');
         redirect('backend/orders');
     }
-
     function update_rusak()
     {
         $id_order = $this->input->post('id_order');
+        $harga_total = $this->input->post('harga_total');
         $keterangan = $this->input->post('keterangan');
         $ukuran = $this->db->query("select ukuran from orders WHERE id_order='$id_order'")->row_array()['ukuran'];
-        $this->db->query("update product
+        $this->db->query("update stock
                             set $ukuran = $ukuran - (select quantity from orders WHERE id_order='$id_order')
                             where id_product = (select id_product from orders WHERE id_order='$id_order')");
         $this->db->query("update orders set is_rusak = 1, keterangan_rusak = '$keterangan' WHERE id_order='$id_order'");
+        // denda
+        $denda = $harga_total / 2;
+        $this->db->query(" INSERT INTO `denda` (id_denda, id_order, jumlah_denda) VALUES (null, '$id_order', '$denda'); ");
         echo $this->session->set_flashdata('msg', 'success-rusak');
         redirect('backend/orders');
     }

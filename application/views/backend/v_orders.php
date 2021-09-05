@@ -539,6 +539,7 @@ $jum_konfirmasi = $query3->num_rows();
 								<label class="control-label col-xs-3">Keterangan</label>
 								<div class="col-xs-8">
 									<input type="hidden" name="id_order" value="<?php echo $id; ?>">
+									<input type="hidden" name="harga_total" value="<?php echo $harga_total; ?>">
 									<input name="keterangan" id="keterangan" class="form-control" type="text" required>
 								</div>
 							</div>
