@@ -271,6 +271,22 @@ error_reporting(0);
                     return true;
                 }
 
+                function createCookie(name, value, days) {
+                    var expires;
+                    
+                    if (days) {
+                        var date = new Date();
+                        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                        expires = "; expires=" + date.toGMTString();
+                    }
+                    else {
+                        expires = "";
+                    }
+                    console.log(name)
+                    document.cookie = escape(name) + "=" + 
+                        escape(value) + expires + "; path=/";
+                }
+
                 var ukuran = $('#ukuran').val()
                 var quantity = $('#quantity').val()
 
@@ -304,22 +320,8 @@ error_reporting(0);
                 
             });
 
-            function createCookie(name, value, days) {
-                var expires;
-                
-                if (days) {
-                    var date = new Date();
-                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                    expires = "; expires=" + date.toGMTString();
-                }
-                else {
-                    expires = "";
-                }
-                
-                document.cookie = escape(name) + "=" + 
-                    escape(value) + expires + "; path=/";
-                }
-            });
+            
+        });
     </script>
 
 </body>
