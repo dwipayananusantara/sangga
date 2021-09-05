@@ -178,7 +178,7 @@ $jum_konfirmasi = $query3->num_rows();
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Data Murid
+					Data Pendaftaran Kursus Tari
 					<small></small>
 				</h1>
 				<ol class="breadcrumb">
@@ -367,10 +367,20 @@ $jum_konfirmasi = $query3->num_rows();
 		$(function() {
 			$("#example1").DataTable({
 				dom: 'Bfrtip',
-				buttons: ['excel', 'pdfHtml5',],
-				exportOptions: {
-					columns: ':not(.notexport)'
-				}
+				buttons: [
+					{
+						extend: 'pdf',
+						exportOptions: {
+							columns: [1,2,3,4,5,6,7,8,9]
+						}
+					},
+					{
+						extend: 'excel',
+						exportOptions: {
+							columns: [1,2,3,4,5,6,7,8,9]
+						}
+					}
+				],
 			});
 		});
 	</script>

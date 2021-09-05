@@ -30,6 +30,7 @@ class Orders extends CI_Controller
     }
     function barang_kembali()
     {
+        $harga_total = $this->input->post('harga_total');
         $kode = $this->input->post('kode');
         $start = new DateTime($this->input->post('tgl'));
         $end = new DateTime($this->input->post('dikembalikan'));
@@ -37,6 +38,9 @@ class Orders extends CI_Controller
 
         if($interval > 3){
             $denda = 50000 * ($interval - 3);
+            if($denda > $harga_total / 2){
+                $denda = $harga_total / 2;
+            }
             $this->db->query(" INSERT INTO `denda` (id_denda, id_order, jumlah_denda) VALUES (null, '$kode', '$denda'); ");
         }
         
@@ -159,7 +163,6 @@ class Orders extends CI_Controller
 
         echo json_encode($data);
     }
-
     function hapus_order()
     {
         $kode = $this->input->post('kode');
@@ -167,16 +170,19 @@ class Orders extends CI_Controller
         echo $this->session->set_flashdata('msg', 'success-hapus');
         redirect('backend/orders');
     }
-
     function update_rusak()
     {
         $id_order = $this->input->post('id_order');
+        $harga_total = $this->input->post('harga_total');
         $keterangan = $this->input->post('keterangan');
         $ukuran = $this->db->query("select ukuran from orders WHERE id_order='$id_order'")->row_array()['ukuran'];
-        $this->db->query("update product
+        $this->db->query("update stock
                             set $ukuran = $ukuran - (select quantity from orders WHERE id_order='$id_order')
                             where id_product = (select id_product from orders WHERE id_order='$id_order')");
         $this->db->query("update orders set is_rusak = 1, keterangan_rusak = '$keterangan' WHERE id_order='$id_order'");
+        // denda
+        $denda = $harga_total / 2;
+        $this->db->query(" INSERT INTO `denda` (id_denda, id_order, jumlah_denda) VALUES (null, '$id_order', '$denda'); ");
         echo $this->session->set_flashdata('msg', 'success-rusak');
         redirect('backend/orders');
     }
@@ -214,7 +220,7 @@ class Orders extends CI_Controller
     function kurangi_stock()
     {
         //kurangi stock
-        $queryKurangiStock = "UPDATE product SET $ukuran=((SELECT $ukuran from product WHERE id_product=$id_product)-$quantity) WHERE id_product=$id_product";
+        $queryKurangiStock = "UPDATE stock SET $ukuran=((SELECT $ukuran from stock WHERE id_product=$id_product)-$quantity) WHERE id_product=$id_product";
         $this->db->query($queryKurangiStock);
     }
 }

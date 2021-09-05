@@ -328,6 +328,7 @@ $jum_konfirmasi = $query3->num_rows();
 		$nama = $a['nama'];
 		$ambil = $a['ambil'];
 		$kembali = $a['kembali'];
+		$harga_total = $a['harga_total'];
 	?>
 		<div id="modalPembayaran<?php echo $id ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
 			<div class="modal-dialog">
@@ -401,6 +402,7 @@ $jum_konfirmasi = $query3->num_rows();
 						<div class="modal-body">
 							<input name="kode" type="hidden" value="<?php echo $id; ?>">
 							<input name="tgl" type="hidden" value="<?php echo $tgl; ?>">
+							<input name="harga_total" type="hidden" value="<?php echo $harga_total; ?>">
 
 							<div class="form-group">
 								<label class="control-label col-xs-3">Tanggal Pengembalian</label>
@@ -537,6 +539,7 @@ $jum_konfirmasi = $query3->num_rows();
 								<label class="control-label col-xs-3">Keterangan</label>
 								<div class="col-xs-8">
 									<input type="hidden" name="id_order" value="<?php echo $id; ?>">
+									<input type="hidden" name="harga_total" value="<?php echo $harga_total; ?>">
 									<input name="keterangan" id="keterangan" class="form-control" type="text" required>
 								</div>
 							</div>

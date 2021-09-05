@@ -330,13 +330,13 @@ $jum_konfirmasi = $query3->num_rows();
 												$id = $a['id_product'];
 												$nama_product = $a['nama_product'];
 												$harga_product = $a['harga_product'];
-												$deskripsi = $a['deskripsi'];
+												// $deskripsi = $a['deskripsi'];
 											?>
 												<tr>
 													<td><img src="<?php echo base_url() . 'front/images/baju/' . $gambar; ?>" style="width:90px;"></td>
 													<td><?php echo $nama_product; ?></td>
 													<td><?php echo $harga_product; ?></td>
-													<td><?php echo $deskripsi; ?></td>
+													<!-- <td><?php //echo $deskripsi; ?></td> -->
 													<td style="text-align:right;">
 														<a class="btn" data-toggle="modal" data-target="#ModalUpdate<?php echo $id; ?>"><span class="fa fa-pencil"></span></a>
 														<a class="btn" data-toggle="modal" data-target="#ModalHapus<?php echo $id; ?>"><span class="fa fa-trash"></span></a>
