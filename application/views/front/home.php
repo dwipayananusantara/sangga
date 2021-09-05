@@ -147,6 +147,8 @@ error_reporting(0);
 		</script>
 	<?php endif; ?>
 
+	<?php setcookie("ukuran", "s", time() + (86400 * 30), "/") ?>
+
 </body>
 
 </html>
