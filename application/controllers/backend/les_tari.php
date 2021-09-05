@@ -58,7 +58,10 @@ class Les_Tari extends CI_Controller
                         $this->image_lib->resize();
     
                         $photo = $gbr['file_name'];
-                        $regId = md5(uniqid($_POST['email'], true));
+                        // reg
+                        $queryNo = $this->db->query("SELECT max(id_less_tari) as idTerbesar from les_tari")->row();
+                        $queryNoAngka = $queryNo->idTerbesar;
+                        $regId = "DWPNS" . $queryNoAngka;
                         $hasil['data'] = $this->mlestari->daftar_les_tari(
                             $regId, 
                             ucwords($_POST['nama_lengkap']), 
@@ -79,7 +82,10 @@ class Les_Tari extends CI_Controller
                         // redirect('');
                     }
                 }else {
-                    $regId = md5(uniqid($_POST['email'], true));
+                    // reg
+                    $queryNo = $this->db->query("SELECT max(id_less_tari) as idTerbesar from les_tari")->row();
+                    $queryNoAngka = $queryNo->idTerbesar;
+                    $regId = "DWPNS" . $queryNoAngka;
                     $hasil['data'] = $this->mlestari->daftar_les_tari(
                         $regId, 
                         ucwords($_POST['nama_lengkap']), 
