@@ -249,6 +249,9 @@ error_reporting(0);
             $('#cek_harga').click(function() {
                 var ambil = new Date($('#ambil').val())
                 var kembali = new Date($('#kembali').val())
+                var ukuran = $('#ukuran').val()
+                var quantity = $('#quantity').val()
+                var result = <?php echo json_encode($result) ?>;
                 
                 // if(!$('#ambil').val() || !$('#kembali').val()) {
                 //     Swal.fire({
@@ -271,54 +274,31 @@ error_reporting(0);
                     return true;
                 }
 
-                async function createCookie(name, value, days) {
-                    var expires;
-                    
-                    if (days) {
-                        var date = new Date();
-                        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                        expires = "; expires=" + date.toGMTString();
-                    }
-                    else {
-                        expires = "";
-                    }
-                    console.log(name)
-                    document.cookie = escape(name) + "=" + 
-                        escape(value) + expires + "; path=/";
+                if( quantity > result[ukuran] ){
+                    Swal.fire({
+                        title: 'WARNING',
+                        text: "Pemesanan anda melebihi stock kami",
+                        icon: 'warning',
+                        confirmButtonColor: 'blue',
+                        confirmButtonText: 'Ok'
+                    })
+                    return true
                 }
 
-                var ukuran = $('#ukuran').val()
-                var quantity = $('#quantity').val()
-
-                    createCookie("ukuran", ukuran, "10").then(() => {
-
-                        if( quantity > (<?= $result[$_COOKIE['ukuran']] ?> || 0) ){
-                        Swal.fire({
-                            title: 'WARNING',
-                            text: "Pemesanan anda melebihi stock kami",
-                            icon: 'warning',
-                            confirmButtonColor: 'blue',
-                            confirmButtonText: 'Ok'
-                        })
-                        return true;
-                    }
-
-                    $.ajax({
-                        type: "POST",
-                        url: "<?php echo base_url() . 'backend/orders/cek_harga' ?>",
-                        dataType: "json",
-                        data: $('#data').serialize(),
-                        success: function(data) {
-                            $('#total_harga').val(data.fmt_total_harga);
-                            if (data.total_harga > 0) {
-                                $('#submit').prop('disabled', false);
-                            } else {
-                                $('#submit').prop('disabled', true);
-                            }
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo base_url() . 'backend/orders/cek_harga' ?>",
+                    dataType: "json",
+                    data: $('#data').serialize(),
+                    success: function(data) {
+                        $('#total_harga').val(data.fmt_total_harga);
+                        if (data.total_harga > 0) {
+                            $('#submit').prop('disabled', false);
+                        } else {
+                            $('#submit').prop('disabled', true);
                         }
-                    });
-                })
-
+                    }
+                });
                 
             });
 
