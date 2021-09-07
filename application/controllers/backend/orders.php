@@ -120,8 +120,8 @@ class Orders extends CI_Controller
                     $config['create_thumb'] = FALSE;
                     $config['maintain_ratio'] = FALSE;
                     $config['quality'] = '80%';
-                    $config['width'] = 756;
-                    $config['height'] = 434;
+                    // $config['width'] = 756;
+                    // $config['height'] = 434;
                     $config['new_image'] = './front/images/review/' . $gbr['file_name'];
                     $this->load->library('image_lib', $config);
                     $this->image_lib->resize();
